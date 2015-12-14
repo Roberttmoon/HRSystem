@@ -44,20 +44,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillableAssetData.cs" />
+    <Compile Include="ClientData.cs" />
+    <Compile Include="CredentialData.cs" />
     <Compile Include="CredentialsAccess.cs" />
     <Compile Include="DataAccessLayer.cs" />
     <Compile Include="ProjectAccess.cs" />
+    <Compile Include="ProjectData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceAccess.cs" />
+    <Compile Include="ResourceReport.cs" />
+    <Compile Include="TaskData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TaskTimeEntry\TaskTimeEntry.csproj">
-      <Project>{b9e5c52f-d40e-44b2-93ec-6f7592f23d0f}</Project>
-      <Name>TaskTimeEntry</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -35,10 +35,5 @@ namespace DataAccess
             string json = File.ReadAllText(path);
             return JsonConvert.DeserializeObject<T>(json);
         }
-
-        public int GetProjectHoursActual(Guid projectID)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

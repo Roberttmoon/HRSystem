@@ -16,6 +16,7 @@ namespace TaskTimeEntry
         {
 
         }
+
         static public Client createAssit(string name, MailAddress email)
         {
             Client newClinet = new Client();
