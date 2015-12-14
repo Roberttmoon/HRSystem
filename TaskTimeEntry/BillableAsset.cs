@@ -16,7 +16,7 @@ namespace TaskTimeEntry
         {
 
         }
-        static public BillableAsset createAssit(string name, MailAddress email)
+        static public BillableAsset CreateAssit(string name, MailAddress email)
         {
             BillableAsset newAssit = new BillableAsset();
             newAssit.id = Guid.NewGuid();
@@ -25,5 +25,21 @@ namespace TaskTimeEntry
             return newAssit;
         }
 
+        void AddTaskToTaskList(Task task, ref List<Task> taskList)
+        {
+            taskList.Add(task);
+        }
+        public void addProject(Project project, List<Task> task)
+        {
+            if (this.work.ContainsKey(project))
+            {
+                work[project] = task;
+            }else
+            {
+                work.Add(project, task);
+            }
+
+
+        }
     }
 }

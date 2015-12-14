@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="Choose Task" Height="350" Width="500">
     <Grid>
-        
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="108" Margin="81,81,0,0" VerticalAlignment="Top" Width="148" SelectionChanged="listBox_SelectionChanged"/>
+        <Label x:Name="label" Content="Choose Project" HorizontalAlignment="Left" Margin="107,42,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="label1" Content="Choose Task" HorizontalAlignment="Left" Margin="295,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.752" Width="86">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.126"/>
+                    <TranslateTransform X="-0.015" Y="0.119"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="108" Margin="270,81,0,0" VerticalAlignment="Top" Width="142" SelectionChanged="listBox1_SelectionChanged"/>
+        <Button x:Name="button" Content="Cancel" HorizontalAlignment="Left" Margin="124,218,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button1" Content="OK" HorizontalAlignment="Left" Margin="304,218,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.347,-0.242"/>
+
     </Grid>
 </Window>
