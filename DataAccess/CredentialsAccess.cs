@@ -13,5 +13,13 @@ namespace DataAccess
         {
 
         }
+
+        public void EnterAccountCredentials(string email, Guid id, string password)
+        {
+
+        }
+
+
+
     }
 }
