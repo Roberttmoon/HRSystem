@@ -16,12 +16,12 @@ namespace TaskTimeEntry
 
         }
 
-        public AddHours(int hours)
+        public void AddHours(int hours)
         {
             throw new NotImplementedException();
         }
 
-        public AddResource(BillableAsset asset)
+        public void AddResource(BillableAsset asset)
         {
             throw new NotImplementedException();
         }
