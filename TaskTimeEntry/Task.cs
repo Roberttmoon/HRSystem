@@ -20,10 +20,5 @@ namespace TaskTimeEntry
         {
             throw new NotImplementedException();
         }
-
-        public void AddResource(BillableAsset asset)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
