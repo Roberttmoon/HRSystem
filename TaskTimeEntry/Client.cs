@@ -13,6 +13,11 @@ namespace TaskTimeEntry
         private List<Project> clientProjects;
         private float discount;
 
+        Client()
+        {
+            clientProjects = new List<Project>();
+        }
+
         public void addTime(Project project, int time)
         {
         }
