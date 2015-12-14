@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class CredentialsAccess : DataAccessLayer<Dictionary<MailAddress, string>>
+    public class CredentialsAccess : DataAccessLayer<CredentialData>
     {
         public CredentialsAccess(string fileName) : base(fileName)
         {
@@ -18,11 +18,10 @@ namespace DataAccess
         {
 
         }
-        public static void ValidateEmail(string email, ref MailAddress email)
+
+        public bool CheckCredentials(string email, string password)
         {
-
+            throw new NotImplementedException();
         }
-
-
     }
 }

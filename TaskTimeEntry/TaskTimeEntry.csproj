@@ -46,10 +46,8 @@
   <ItemGroup>
     <Compile Include="BillableAsset.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="DataAccessLayer.cs" />
     <Compile Include="ITaskInteract.cs" />
     <Compile Include="Project.cs" />
-    <Compile Include="ResourceReport.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
