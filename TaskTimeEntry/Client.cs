@@ -15,7 +15,6 @@ namespace TaskTimeEntry
 
         void addTime(Project project, int time)
         {
-
         }
     }
 }
