@@ -26,11 +26,6 @@ namespace Interface
             InitializeComponent();
         }
 
-        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             BillableAsset newAsset = new BillableAsset();
