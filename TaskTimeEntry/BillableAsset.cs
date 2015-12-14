@@ -16,7 +16,7 @@ namespace TaskTimeEntry
         {
 
         }
-        static public BillableAsset CreateAssit(string name, MailAddress email)
+        static public BillableAsset CreateAsset(string name, MailAddress email)
         {
             BillableAsset newAsset = new BillableAsset();
             newAsset.id = Guid.NewGuid();
