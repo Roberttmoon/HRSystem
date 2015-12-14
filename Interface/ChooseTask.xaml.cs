@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskTimeEntry;
 
 namespace Interface
 {
@@ -27,12 +28,14 @@ namespace Interface
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Tasks
-            taskList tasklist = new taskList();
+           List<string> taskList;
+
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Projects
+            List<string> projectList;
         }
     }
 }
