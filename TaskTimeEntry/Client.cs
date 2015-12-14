@@ -10,11 +10,16 @@ namespace TaskTimeEntry
     {
         private string clientName;
         private Guid clientID;
-        private List<Project> projects;
+        private List<Project> clientProjects;
         private float discount;
 
         public void addTime(Project project, int time)
         {
         }
+        public void addProject(Project project, ref List<Project> clientProjects)
+        {
+            clientProjects.Add(project);
+        }
+
     }
 }
