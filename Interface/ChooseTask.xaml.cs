@@ -23,5 +23,15 @@ namespace Interface
         {
             InitializeComponent();
         }
+
+        private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Tasks
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Projects
+        }
     }
 }
