@@ -12,7 +12,7 @@
         <Label x:Name="label_Copy1" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,128,0,0" RenderTransformOrigin="0.5,4.615"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Margin="121,24,0,0"/>
         <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Margin="121,73,0,0"/>
-        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="121,205,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="121,205,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="button_Copy" Content="Clear" HorizontalAlignment="Left" Margin="229,205,0,0" VerticalAlignment="Top" Width="75"/>
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="121,128,0,0" VerticalAlignment="Top" Width="222" Height="26"/>
     </Grid>
