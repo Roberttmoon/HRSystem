@@ -28,12 +28,14 @@ namespace Interface
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Tasks
-           BillableAsset.taskList tasklist = new taskList();
+           List<string> taskList;
+
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Projects
+            List<string> projectList;
         }
     }
 }
