@@ -8,9 +8,9 @@ namespace TaskTimeEntry
 {
     interface ITaskInteract
     {
-        int logHours(Task task, int hours, string comment);
+        int LogTime(Task task, float time, string comment);
         // returns int hoursRemaining
-        void closeTask(Task task);
-        void addComment(Task task);
+        void CloseTask(Task task);
+        void AddComment(Task task, string comment);
     }
 }

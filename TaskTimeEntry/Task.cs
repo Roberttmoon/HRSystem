@@ -8,8 +8,8 @@ namespace TaskTimeEntry
 {
     public class Task : Project
     {
-        protected string taskName;
-        protected Guid taskID;
+        public string taskName;
+        public Guid taskID;
 
         public Task()
         {

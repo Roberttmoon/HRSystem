@@ -7,16 +7,26 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
-    public abstract class UserAccount
+    public abstract class UserAccount : ITaskInteract
     {
         public string name { get; protected set; }
         public MailAddress email { get; protected set; }
         public Guid id { get; protected set; }
         public Dictionary<Project, List<Task>> work { get; protected set; }
 
-        public void AddTime(Project project, int time)
+        public int LogTime(Task task, float time, string comment)
         {
             throw new NotImplementedException();
+        }
+
+        public void CloseTask(Task task)
+        {
+            task.ChangeStatus(true);
+        }
+
+        public void AddComment(Task task, string comment)
+        {
+            task.AddComment(DateTime.Now, comment)
         }
 
         public void AddProject(Project project, ref List<Project> projects)
