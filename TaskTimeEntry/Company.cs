@@ -12,7 +12,7 @@ namespace TaskTimeEntry
 
         List<string> Project;
 
-        List<string> Cient;
+        List<string> Client;
 
         public void AddProject(Project project)
         { }
