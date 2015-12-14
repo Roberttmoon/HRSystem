@@ -39,8 +39,6 @@ namespace TaskTimeEntry
             {
                 work.Add(project, task);
             }
-
-
         }
     }
 }

@@ -17,11 +17,23 @@ namespace TaskTimeEntry
         protected int hoursRemaining;
         protected bool statusComplete;
         protected List<BillableAsset> resources;
-        protected List<string> comments;
+        protected List<Dictionary<DateTime, string>> comments;
 
         public Project()
         {
 
+        }
+
+        public void ChangeStatus(bool status)
+        {
+            statusComplete = status;
+        }
+
+        public void AddComment(DateTime date, string comment)
+        {
+            Dictionary<DateTime, string> newComment = new Dictionary<DateTime, string>();
+            newComment.Add(date, comment);
+            comments.Add(newComment);
         }
 
         public void AddResource(BillableAsset asset)
