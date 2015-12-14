@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess;
+
 
 namespace TaskTimeEntry
 {
     [Serializable]
-    public class BillableAsset : UserAccount, ITaskInteract
+    public class BillableAsset : UserAccount
     {
         public float hourlyRate { get; private set; }
 
@@ -16,20 +18,20 @@ namespace TaskTimeEntry
         {
 
         }
-        static public BillableAsset CreateAsset(string name, MailAddress email)
+        public BillableAsset CreateAsset(string nameIncoming, string emailString)
         {
             BillableAsset newAsset = new BillableAsset();
-            newAsset.id = Guid.NewGuid();
-            newAsset.name = name;
-            newAsset.email = email;
+            id = Guid.NewGuid();
+            name = nameIncoming;
+            email = new MailAddress(emailString);
             return newAsset;
         }
+        
 
         void AddTaskToTaskList(Task task, ref List<Task> taskList)
         {
             taskList.Add(task);
         }
-        
         public void addProject(Project project, List<Task> task)
         {
             if (this.work.ContainsKey(project))

@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DataAccess
 {
     public class CredentialData
@@ -19,10 +20,10 @@ namespace DataAccess
 
         }
 
-        public CredentialData(string name, MailAddress email, Guid id)
+        public CredentialData(string name, string email, Guid id)
         {
             this.name = name;
-            this.email = email;
+            this.email = new MailAddress(email);
             this.id = id;
         }
     }
