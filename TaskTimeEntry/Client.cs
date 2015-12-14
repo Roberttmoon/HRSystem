@@ -13,7 +13,7 @@ namespace TaskTimeEntry
         private List<Project> clientProjects;
         private float discount;
 
-        Client()
+        public Client()
         {
             clientProjects = new List<Project>();
         }

@@ -1,24 +1,27 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HRSystem
+namespace TaskTimeEntry
 {
-    class DataAccessLayer
+    public class DataAccessLayer
     {
-        string path;
+        public string path;
+        public string fileName;
+        public JsonSerializer serializer;
 
-        int getProjectHoursActual(Guid projectID)
+        public int getProjectHoursActual(Guid projectID)
         {
-
-            return 0;
+            throw new NotImplementedException();
         }
-        //ResourceReport getResourceReport(BillableAsset asset){}
-        void updateTask(Task task)
-        {
 
+        //ResourceReport getResourceReport(BillableAsset asset){}
+        public void updateTask(Task task)
+        {
+            throw new NotImplementedException();
         }
     }
 }
