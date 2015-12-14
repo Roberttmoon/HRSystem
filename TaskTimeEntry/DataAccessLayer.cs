@@ -14,9 +14,9 @@ namespace TaskTimeEntry
         public string fileName;
         public JsonSerializer serializer;
 
-        public DataAccessLayer()
+        public DataAccessLayer(string fileName)
         {
-            fileName = "@resources.json";
+            fileName = String.Format("@{0}.json", fileName);
             path = Path.Combine(Environment.CurrentDirectory, fileName);
             if (!File.Exists(path))
             {
@@ -29,13 +29,17 @@ namespace TaskTimeEntry
             throw new NotImplementedException();
         }
 
-        public int getProjectHoursActual(Guid projectID)
+        public int GetProjectHoursActual(Guid projectID)
         {
             throw new NotImplementedException();
         }
 
-        //ResourceReport getResourceReport(BillableAsset asset){}
-        public void updateTask(Task task)
+        public ResourceReport GetResourceReport(BillableAsset resource)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateTask(Task task)
         {
             throw new NotImplementedException();
         }
