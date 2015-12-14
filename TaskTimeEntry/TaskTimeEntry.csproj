@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildableAsset.cs" />
+    <Compile Include="BillableAsset.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DataAccessLayer.cs" />
     <Compile Include="ITaskInteract.cs" />

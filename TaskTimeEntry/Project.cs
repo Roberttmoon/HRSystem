@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
+    [Serializable]
     public class Project
     {
         protected string clientName;
@@ -23,12 +24,12 @@ namespace TaskTimeEntry
 
         }
 
-        public AddResource(BillableAsset asset)
+        public void AddResource(BillableAsset asset)
         {
             throw new NotImplementedException();
         }
 
-        public AddBillableHours(int hours)
+        public void AddBillableHours(int hours)
         {
             throw new NotImplementedException();
         }
