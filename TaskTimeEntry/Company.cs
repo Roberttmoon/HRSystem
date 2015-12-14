@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
-    class Company
+    public class Company
     {
-        List<string> BillableAsset;
-
-        List<string> Project;
-
-        List<string> Client;
+        List<BillableAsset> BillableAsset;
+        List<Project> Project;
+        List<Client> Client;
 
         public void AddProject(Project project)
-        { }
+        {
+
+        }
 
         public void AddBillableAsset(BillableAsset asset)
-        { }
+        {
+
+        }
     }
 }
