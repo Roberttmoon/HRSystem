@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="Choose Task" Height="300" Width="300">
+        Title="Choose Task" Height="350" Width="500">
     <Grid>
         
     </Grid>
