@@ -1,0 +1,19 @@
+﻿<Window x:Class="Interface.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Interface"
+        mc:Ignorable="d"
+        Title="Login" Height="233.178" Width="300">
+    <Grid>
+        <TextBlock x:Name="Instructions" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter your email address and password below to begin entering time." VerticalAlignment="Top" Height="43" Width="274"/>
+        <TextBlock x:Name="EmailLabel" HorizontalAlignment="Left" Margin="34,74,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
+        <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="23" Margin="95,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
+        <TextBlock x:Name="PasswordLabel" HorizontalAlignment="Left" Margin="34,113,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" RenderTransformOrigin="0.523,2.381" Width="56"/>
+        <TextBox x:Name="PasswordInput" HorizontalAlignment="Left" Height="23" Margin="95,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="110,157,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="190,157,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
