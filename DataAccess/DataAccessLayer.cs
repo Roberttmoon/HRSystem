@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskTimeEntry
+namespace DataAccess
 {
     public class DataAccessLayer<T>
     {
@@ -14,7 +14,7 @@ namespace TaskTimeEntry
         public string fileName;
         public JsonSerializer serializer;
 
-        public DataAccessLayer(T data, string fileName)
+        public DataAccessLayer(string fileName)
         {
             fileName = String.Format("@{0}.json", fileName);
             path = Path.Combine(Environment.CurrentDirectory, fileName);
@@ -36,28 +36,7 @@ namespace TaskTimeEntry
             return JsonConvert.DeserializeObject<T>(json);
         }
 
-
-        public void EnterAccountCredentials(string email, Guid id, string password)
-        {
-
-        }
-
-        public bool CheckLogin(string email, string passwordEntered)
-        {
-            throw new NotImplementedException();
-        }
-
         public int GetProjectHoursActual(Guid projectID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ResourceReport GetResourceReport(BillableAsset resource)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateTask(Task task)
         {
             throw new NotImplementedException();
         }
