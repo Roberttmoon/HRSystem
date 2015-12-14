@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskTimeEntry;
 
 namespace Interface
 {
@@ -31,7 +32,8 @@ namespace Interface
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            
+            BillableAsset newAsset;
+            newAsset = BillableAsset.CreateAssit(this.Name.Text, this.EMail.Text)
         }
     }
 }
