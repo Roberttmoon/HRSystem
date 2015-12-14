@@ -14,7 +14,7 @@ namespace DataAccess
 
         }
 
-        public ResourceReport GetResourceReport(BillableAsset resource)
+        public ResourceReport GetResourceReport(BillableAssetData resource)
         {
             throw new NotImplementedException();
         }

@@ -11,6 +11,7 @@ namespace DataAccess
     {
         public string name { get; set; }
         public MailAddress email { get; set; }
+        private string password { get; set; }
         public Guid id { get; set; }
 
         public CredentialData()
