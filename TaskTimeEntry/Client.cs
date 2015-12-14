@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
-    class Client
+    public class Client
     {
-        string clientName;
-        Guid clientID;
-        List<Projects> clientProjects;
-        float clientDiscount;
+        private string clientName;
+        private Guid clientID;
+        private List<Project> projects;
+        private float discount;
 
-        void addTime(Project project, int time)
+        public void addTime(Project project, int time)
         {
 
         }
