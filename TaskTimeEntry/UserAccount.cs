@@ -12,7 +12,7 @@ namespace TaskTimeEntry
         public string name { get; protected set; }
         public MailAddress email { get; protected set; }
         public Guid id { get; protected set; }
-        public Dictionary<Project, List<Task>> work { get; protected set; }
+        public List<Dictionary<Project, List<Task>>> work { get; protected set; }
 
         public int LogTime(Task task, float time, string comment)
         {

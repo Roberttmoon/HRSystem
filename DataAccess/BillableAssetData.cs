@@ -12,14 +12,14 @@ namespace DataAccess
         public string resourceName { get; set; }
         public MailAddress resourceEmail { get; set; }
         public Guid resourceID { get; set; }
-        public Dictionary<ProjectData, List<TaskData>> resourceWork { get; set; }
+        public List<Dictionary<ProjectData, List<TaskData>>> resourceWork { get; set; }
 
         public BillableAssetData()
         {
 
         }
 
-        public BillableAssetData(string name, MailAddress email, Guid id, Dictionary<ProjectData, List<TaskData>> work)  
+        public BillableAssetData(string name, MailAddress email, Guid id, List<Dictionary<ProjectData, List<TaskData>>> work)  
         {
             this.resourceName = name;
             this.resourceEmail = email;

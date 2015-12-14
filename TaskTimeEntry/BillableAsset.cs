@@ -9,7 +9,6 @@ using DataAccess;
 
 namespace TaskTimeEntry
 {
-    [Serializable]
     public class BillableAsset : UserAccount
     {
         public float hourlyRate { get; private set; }
@@ -18,6 +17,7 @@ namespace TaskTimeEntry
         {
 
         }
+
         public BillableAsset CreateAsset(string nameIncoming, string emailString)
         {
             BillableAsset newAsset = new BillableAsset();
@@ -32,6 +32,7 @@ namespace TaskTimeEntry
         {
             taskList.Add(task);
         }
+
         public void addProject(Project project, List<Task> task)
         {
             if (this.work.ContainsKey(project))

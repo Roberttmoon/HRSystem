@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,19 +23,8 @@ namespace Interface
         public ChooseTask()
         {
             InitializeComponent();
-        }
-
-        private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Tasks
-           List<string> taskList;
-
-        }
-
-        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Projects
-            List<string> projectList;
+            BillableAssetData resource = (BillableAssetData)Application.Current.FindResource("BillableAsset");
+            Master.DataContext = resource;
         }
     }
 }
