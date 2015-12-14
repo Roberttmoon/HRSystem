@@ -26,7 +26,7 @@ namespace TaskTimeEntry
 
         public void AddComment(Task task, string comment)
         {
-            task.AddComment(DateTime.Now, comment)
+            task.AddComment(DateTime.Now, comment);
         }
 
         public void AddProject(Project project, ref List<Project> projects)

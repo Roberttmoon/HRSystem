@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskTimeEntry;
+
 
 namespace DataAccess
 {
@@ -13,13 +9,5 @@ namespace DataAccess
         {
 
         }
-
-        public ResourceReport GetResourceReport(BillableAsset resource)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
     }
 }

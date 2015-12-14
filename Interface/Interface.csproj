@@ -124,6 +124,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{c6b87964-2f90-424e-afb7-a34ac4b7d7c6}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TaskTimeEntry\TaskTimeEntry.csproj">
       <Project>{b9e5c52f-d40e-44b2-93ec-6f7592f23d0f}</Project>
       <Name>TaskTimeEntry</Name>
