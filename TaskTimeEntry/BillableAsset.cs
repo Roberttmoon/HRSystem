@@ -18,11 +18,11 @@ namespace TaskTimeEntry
         }
         static public BillableAsset CreateAssit(string name, MailAddress email)
         {
-            BillableAsset newAssit = new BillableAsset();
-            newAssit.id = Guid.NewGuid();
-            newAssit.name = name;
-            newAssit.email = email;
-            return newAssit;
+            BillableAsset newAsset = new BillableAsset();
+            newAsset.id = Guid.NewGuid();
+            newAsset.name = name;
+            newAsset.email = email;
+            return newAsset;
         }
 
         void AddTaskToTaskList(Task task, ref List<Task> taskList)
