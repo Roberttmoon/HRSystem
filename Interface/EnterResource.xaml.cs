@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,8 +33,10 @@ namespace Interface
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            MailAddress email;
             BillableAsset newAsset;
-            newAsset = BillableAsset.CreateAssit(this.Name.Text, this.EMail.Text)
+            
+            newAsset = BillableAsset.CreateAssit(this.Name.Text, email);
         }
     }
 }

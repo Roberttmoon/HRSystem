@@ -18,7 +18,10 @@ namespace DataAccess
         {
 
         }
+        public static void ValidateEmail(string email, ref MailAddress email)
+        {
 
+        }
 
 
     }

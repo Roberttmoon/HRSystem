@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace TaskTimeEntry
 {
     [Serializable]
@@ -16,8 +17,10 @@ namespace TaskTimeEntry
         {
 
         }
-        static public BillableAsset CreateAssit(string name, MailAddress email)
+        static public BillableAsset CreateAssit(string name, string emailString)
         {
+            MailAddress email;
+
             BillableAsset newAsset = new BillableAsset();
             newAsset.id = Guid.NewGuid();
             newAsset.name = name;
