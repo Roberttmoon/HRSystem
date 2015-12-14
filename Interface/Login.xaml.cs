@@ -33,8 +33,10 @@ namespace Interface
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            DataAccessLayer dataAccess = new DataAccessLayer();
-            if (dataAccess.CheckLogin(// email and password))
+            DataAccessLayer dataAccess = new DataAccessLayer("passwords");
+            string email = EmailInput.Text;
+            string password = PasswordInput.Password;
+            if (dataAccess.CheckLogin(email, password))
             {
                 // Show next window
             } else
