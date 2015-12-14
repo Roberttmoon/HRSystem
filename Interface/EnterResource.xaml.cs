@@ -23,5 +23,10 @@ namespace Interface
         {
             InitializeComponent();
         }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
