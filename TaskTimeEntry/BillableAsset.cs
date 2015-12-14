@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace TaskTimeEntry
 {
     [Serializable]
-    public class BillableAsset : UserAccount
+    public class BillableAsset : UserAccount, ITaskInteract
     {
         public float hourlyRate { get; private set; }
 
@@ -16,7 +16,7 @@ namespace TaskTimeEntry
         {
 
         }
-        static public BillableAsset CreateAssit(string name, MailAddress email)
+        static public BillableAsset CreateAsset(string name, MailAddress email)
         {
             BillableAsset newAsset = new BillableAsset();
             newAsset.id = Guid.NewGuid();
@@ -29,6 +29,7 @@ namespace TaskTimeEntry
         {
             taskList.Add(task);
         }
+        
         public void addProject(Project project, List<Task> task)
         {
             if (this.work.ContainsKey(project))
