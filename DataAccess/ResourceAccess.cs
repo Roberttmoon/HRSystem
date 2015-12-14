@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TaskTimeEntry;
+
+namespace DataAccess
+{
+    public class ResourceAccess : DataAccessLayer<BillableAsset>
+    {
+        public ResourceAccess(string fileName) : base(fileName)
+        {
+
+        }
+
+        public ResourceReport GetResourceReport(BillableAsset resource)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+    }
+}
