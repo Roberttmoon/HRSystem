@@ -15,26 +15,13 @@ using System.Windows.Shapes;
 namespace Interface
 {
     /// <summary>
-    /// Interaction logic for ChooseTask.xaml
+    /// Interaction logic for ProjectTime.xaml
     /// </summary>
-    public partial class ChooseTask : Window
+    public partial class ProjectTime : Window
     {
-        public ChooseTask()
+        public ProjectTime()
         {
             InitializeComponent();
-        }
-
-        private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Tasks
-           List<string> taskList;
-
-        }
-
-        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Projects
-            List<string> projectList;
         }
     }
 }
