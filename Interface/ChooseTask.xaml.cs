@@ -27,6 +27,7 @@ namespace Interface
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Tasks
+            taskList tasklist = new taskList();
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
