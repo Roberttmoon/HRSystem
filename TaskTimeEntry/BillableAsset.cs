@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess;
 
 
 namespace TaskTimeEntry
@@ -17,14 +18,15 @@ namespace TaskTimeEntry
         {
 
         }
-        static public BillableAsset CreateAssit(string name, string emailString)
+        public BillableAsset CreateAsset(string nameIncoming, string emailString)
         {
             BillableAsset newAsset = new BillableAsset();
-            newAsset.id = Guid.NewGuid();
-            newAsset.name = name;
-            newAsset.email = email;
+            id = Guid.NewGuid();
+            name = nameIncoming;
+            email = new MailAddress(emailString);
             return newAsset;
         }
+        
 
         void AddTaskToTaskList(Task task, ref List<Task> taskList)
         {

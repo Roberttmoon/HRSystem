@@ -33,10 +33,9 @@ namespace Interface
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            MailAddress email;
-            BillableAsset newAsset;
-            
-            newAsset = BillableAsset.CreateAssit(this.Name.Text, email);
+            BillableAsset newAsset = new BillableAsset();
+            newAsset = newAsset.CreateAsset(this.Name.Text, this.EMail.Text);
+
         }
     }
 }
