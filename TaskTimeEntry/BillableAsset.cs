@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace TaskTimeEntry
 {
     [Serializable]
-    public class BillableAsset : UserAccount
+    public class BillableAsset : UserAccount, ITaskInteract
     {
         public float hourlyRate { get; private set; }
 
@@ -29,6 +29,7 @@ namespace TaskTimeEntry
         {
             taskList.Add(task);
         }
+        
         public void addProject(Project project, List<Task> task)
         {
             if (this.work.ContainsKey(project))
