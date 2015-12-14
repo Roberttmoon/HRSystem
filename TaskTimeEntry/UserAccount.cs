@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
-    [Serializable]
     public abstract class UserAccount
     {
         public string name { get; protected set; }

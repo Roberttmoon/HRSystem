@@ -13,6 +13,11 @@ namespace TaskTimeEntry
         public string fileName;
         public JsonSerializer serializer;
 
+        public bool CheckLogin(string email, string passwordEntered)
+        {
+            throw new NotImplementedException();
+        }
+
         public int getProjectHoursActual(Guid projectID)
         {
             throw new NotImplementedException();

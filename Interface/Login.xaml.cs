@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TaskTimeEntry;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +29,18 @@ namespace Interface
         {
             // Add Message Box for "Are you sure?"
             this.Close();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataAccessLayer dataAccess = new DataAccessLayer();
+            if (dataAccess.CheckLogin(// email and password))
+            {
+                // Show next window
+            } else
+            {
+                this.Show();
+            }
         }
     }
 }

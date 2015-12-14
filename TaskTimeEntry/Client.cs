@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
+    [Serializable]
     public class Client : UserAccount
     {
         private float discount;
@@ -14,11 +15,5 @@ namespace TaskTimeEntry
         {
 
         }
-
-        public void addProject(Project project, ref List<Project> clientProjects)
-        {
-            clientProjects.Add(project);
-        }
-
     }
 }

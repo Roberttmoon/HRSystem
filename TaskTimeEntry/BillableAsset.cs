@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
+    [Serializable]
     public class BillableAsset : UserAccount
     {
         public float hourlyRate { get; private set; }
