@@ -43,7 +43,7 @@ namespace Interface
                 Application.Current.Resources["Asset"] = asset;
                 ChooseTask nextWindow = new ChooseTask();
                 nextWindow.Show();
-                this.Close();
+                Close();
             } else
             {
                 // Password Incorrect Window
