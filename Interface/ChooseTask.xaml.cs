@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskTimeEntry;
 
 namespace Interface
 {
@@ -23,7 +24,7 @@ namespace Interface
         public ChooseTask()
         {
             InitializeComponent();
-            BillableAssetData resource = (BillableAssetData)Application.Current.FindResource("BillableAsset");
+            BillableAsset resource = (BillableAsset)Application.Current.FindResource("BillableAsset");
             Master.DataContext = resource;
         }
     }

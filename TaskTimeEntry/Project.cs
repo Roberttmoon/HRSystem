@@ -9,6 +9,7 @@ namespace TaskTimeEntry
     [Serializable]
     public class Project
     {
+        public string name { get; set; }
         protected string clientName;
         protected Guid clientID;
         protected Guid projectID;

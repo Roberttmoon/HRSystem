@@ -8,15 +8,24 @@
         Title="Choose Task" Height="350" Width="500">
     <Grid x:Name="Master">
         <Label x:Name="ChooseProjectLabel" Content="Choose Project" HorizontalAlignment="Left" Margin="107,42,0,0" VerticalAlignment="Top" Width="100"/>
-        <ListBox x:Name="ChooseProject" HorizontalAlignment="Left" Height="108" Margin="81,81,0,0" VerticalAlignment="Top" Width="148" SelectionChanged="listBox_SelectionChanged"/>
+
+        <ListBox x:Name="ChooseProject" HorizontalAlignment="Left" Height="108" Margin="81,81,0,0" VerticalAlignment="Top" Width="148" SelectionChanged="listBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="Binding Path=ProjectList}" />
+                    <TextBlock Text="{Binding name}" />
                 </DataTemplate>
-            
+
             </ListBox.ItemTemplate>
+        </ListBox>
+
         <Label x:Name="ChooseTaskLabel" Content="Choose Task" HorizontalAlignment="Left" Margin="295,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.752" Width="86"/>
-        <ListBox x:Name="ChooseTask" HorizontalAlignment="Left" Height="108" Margin="270,81,0,0" VerticalAlignment="Top" Width="142" SelectionChanged="listBox1_SelectionChanged"/>
+        <ListBox x:Name="ChooseTask" HorizontalAlignment="Left" Height="108" Margin="270,81,0,0" VerticalAlignment="Top" Width="142">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding taskName}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="124,218,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="ContinueButton" Content="OK" HorizontalAlignment="Left" Margin="304,218,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.347,-0.242"/>
     </Grid>

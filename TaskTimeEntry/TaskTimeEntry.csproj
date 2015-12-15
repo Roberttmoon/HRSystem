@@ -48,6 +48,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="ITaskInteract.cs" />
     <Compile Include="Project.cs" />
+    <Compile Include="Serializer.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
