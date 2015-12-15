@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TaskTime.xaml.cs">
+      <DependentUpon>TaskTime.xaml</DependentUpon>
+    </Compile>
     <Page Include="ChooseTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +92,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ProjectTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TaskTime.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
