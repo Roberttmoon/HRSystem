@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,6 @@ namespace DataAccess
             _client = new MongoClient(connectionString);
             _database = _client.GetDatabase(database);
             _collection = _database.GetCollection<BsonDocument>(collection);
-
         }
 
         public BsonDocument DeserializeFromString(string json)
@@ -35,7 +33,7 @@ namespace DataAccess
 
         public async void AddDocument(string singleDocumentJson)
         {
-            BsonDocument document = Deserialize(singleDocumentJson);
+            BsonDocument document = DeserializeFromString(singleDocumentJson);
             await _collection.InsertOneAsync(document);
         }
 
