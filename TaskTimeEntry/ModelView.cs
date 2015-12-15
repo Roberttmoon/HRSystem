@@ -14,14 +14,14 @@ namespace Interface
         public static bool AddCredentialToDatabase(BillableAsset asset, string password)
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "credentials");
-            List<Dictionary<Guid, string>> existingCredentials = GetAllCredentials(mongo);
-            foreach(Dictionary<Guid, string> item in existingCredentials)
-            {
-                if (item.ContainsKey(asset.id))
-                {
-                    return false;
-                }
-            }
+            //List<Dictionary<Guid, string>> existingCredentials = GetAllCredentials(mongo);
+            //foreach(Dictionary<Guid, string> item in existingCredentials)
+            //{
+            //    if (item.ContainsKey(asset.id))
+            //    {
+            //        return false;
+            //    }
+            //}
             Dictionary<Guid, string> credentials = new Dictionary<Guid, string>();
             credentials.Add(asset.id, password);
             mongo.AddDocument(Serializer<Dictionary<Guid, string>>.SerializeToJson(credentials));

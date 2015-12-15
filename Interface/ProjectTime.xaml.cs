@@ -20,7 +20,6 @@ namespace Interface
     /// </summary>
     public partial class ProjectTime : Window
     {
-
         public string clientName { get; private set; }
         public string projectName { get; private set; }
         public string billableHours { get; private set; }
