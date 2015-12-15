@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
         Title="ProjectTime" Height="376.6" Width="476.474">
+
     <Grid x:Name="PTclientNameAdd">
         <Label x:Name="Client_Name" Content="Client Name" HorizontalAlignment="Left" Margin="23,37,0,0" VerticalAlignment="Top"/>
         <Label x:Name="PTprojectNameAdd" Content="Project Name&#xA;" HorizontalAlignment="Left" Margin="23,81,0,0" VerticalAlignment="Top"/>
@@ -18,5 +19,5 @@
         <Button x:Name="PTaddButton" Content="Add" HorizontalAlignment="Left" Margin="105,219,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click"/>
         <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="206,219,0,0" VerticalAlignment="Top" Width="75"/>
 
-    </Grid>
+        </Grid>
 </Window>

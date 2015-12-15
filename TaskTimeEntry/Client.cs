@@ -10,20 +10,20 @@ namespace TaskTimeEntry
     [Serializable]
     public class Client : UserAccount
     {
-        private float discount;
+        public float discount { get; private set; }
 
         public Client()
         {
 
         }
 
-        static public Client createAssit(string name, MailAddress email)
+        public Client(string name, string email, float discount)
         {
-            Client newClinet = new Client();
-            newClinet.id = Guid.NewGuid();
-            newClinet.name = name;
-            newClinet.email = email;
-            return newClinet;
+            this.name = name;
+            this.email = new MailAddress(email);
+            this.id = Guid.NewGuid();
+            this.projects = new List<Project>();
+            this.tasks = new List<Task>();
         }
     }
 }
