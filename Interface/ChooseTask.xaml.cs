@@ -21,12 +21,17 @@ namespace Interface
     /// </summary>
     public partial class ChooseTask : Window
     {
+        
+
         public ChooseTask()
         {
             InitializeComponent();
             BillableAsset resource = (BillableAsset)Application.Current.FindResource("BillableAsset");
             Master.DataContext = resource;
             ChooseProjectBox.ItemsSource = resource.projects;
+        
+                   
         }
+           
     }
 }
