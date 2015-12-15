@@ -23,8 +23,6 @@ namespace Interface
         public ChooseTask()
         {
             InitializeComponent();
-            BillableAssetData resource = (BillableAssetData)Application.Current.FindResource("BillableAsset");
-            Master.DataContext = resource;
         }
     }
 }

@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,12 @@ namespace DataAccess
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
         protected static IMongoCollection<BsonDocument> _collection;
+        private string _connectionString;
 
-        public MongoAccessLayer(string connectionString, string database, string collection)
+        public MongoAccessLayer(string database, string collection)
         {
-            _client = new MongoClient(connectionString);
+            _connectionString = GetConnectionString();
+            _client = new MongoClient(_connectionString);
             _database = _client.GetDatabase(database);
             _collection = _database.GetCollection<BsonDocument>(collection);
         }
@@ -73,5 +76,13 @@ namespace DataAccess
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(deleteFilter.Key, deleteFilter.Value);
             DeleteResult result = await _collection.DeleteOneAsync(filter);
         }
+
+        public string GetConnectionString()
+        {
+            string fileName = @"connectionstring.txt";
+            string path = Path.Combine(Environment.CurrentDirectory, fileName);
+            return File.ReadAllText(path);
+        }
+
     }
 }

@@ -13,20 +13,14 @@ namespace TaskTimeEntry
     {
         public float hourlyRate { get; private set; }
 
-        public BillableAsset()
+        public BillableAsset(string name, string email)
         {
-
-        }
-
-        public BillableAsset CreateAsset(string name, string email)
-        {
-            BillableAsset newAsset = new BillableAsset();
-            id = Guid.NewGuid();
             this.name = name;
             this.email = new MailAddress(email);
-            return newAsset;
+            id = Guid.NewGuid();
+            this.projects = new List<Project>();
+            this.tasks = new List<Task>();
         }
-        
 
         void AddTaskToTaskList(Task task, ref List<Task> taskList)
         {
@@ -35,13 +29,7 @@ namespace TaskTimeEntry
 
         public void addProject(Project project, List<Task> task)
         {
-            if (this.work.ContainsKey(project))
-            {
-                work[project] = task;
-            }else
-            {
-                work.Add(project, task);
-            }
+            throw new NotImplementedException();
         }
     }
 }

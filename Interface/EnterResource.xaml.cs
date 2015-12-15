@@ -22,17 +22,23 @@ namespace Interface
     /// </summary>
     public partial class EnterResource : Window
     {
+        public string name { get; private set; }
+        public string email { get; private set; }
+        private string password;
+
         public EnterResource()
         {
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            BillableAsset newAsset = new BillableAsset();
-            ResourceAccess dataAcess = new ResourceAccess("BillableAssets.json");
-            newAsset = newAsset.CreateAsset(this.Name.Text, this.EMail.Text);
-            dataAcess.AppendToJSON(newAsset);
+            name = NameInput.Text;
+            email = EmailInput.Text;
+            password = PasswordInput.Password;
+            BillableAsset asset = new BillableAsset(name, email);
+            Dictionary<string, string> credentials = Serializer<string>.CreateDictionary(email, password);
+
         }
     }
 }
