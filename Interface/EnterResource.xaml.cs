@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TaskTimeEntry;
+using DataAccess;
 
 namespace Interface
 {
@@ -29,8 +30,9 @@ namespace Interface
         private void button_Click(object sender, RoutedEventArgs e)
         {
             BillableAsset newAsset = new BillableAsset();
+            ResourceAccess dataAcess = new ResourceAccess("BillableAssets.json");
             newAsset = newAsset.CreateAsset(this.Name.Text, this.EMail.Text);
-
+            dataAcess.AppendToJSON(newAsset);
         }
     }
 }
