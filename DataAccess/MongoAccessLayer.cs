@@ -12,13 +12,16 @@ namespace DataAccess
 {
     public class MongoAccessLayer
     {
-        protected static IMongoClient _client;
-        protected static IMongoDatabase _database;
-        protected static IMongoCollection<BsonDocument> _collection;
+        public static IMongoClient _client;
+        public static IMongoDatabase _database;
+        public static IMongoCollection<BsonDocument> _collection;
+        public string _connectionString;
 
         public MongoAccessLayer(string database, string collection)
         {
-            _client = new MongoClient(SetMongoCredentials());
+            _connectionString = GetConnectionString();
+            Trace.WriteLine(_connectionString);
+            _client = new MongoClient(_connectionString);
             _database = _client.GetDatabase(database);
             _collection = _database.GetCollection<BsonDocument>(collection);
         }
@@ -33,11 +36,10 @@ namespace DataAccess
             return BsonExtensionMethods.ToJson(document);
         } 
 
-        public async void AddDocument(string singleDocumentJson)
+        public void AddDocument(string singleDocumentJson)
         {
             BsonDocument document = DeserializeFromString(singleDocumentJson);
-            Trace.WriteLine(document.ToString());
-            await _collection.InsertOneAsync(document);
+            _collection.InsertOne(document);
         }
 
         public async void AddMultipleBson(List<BsonDocument> documents)
