@@ -34,15 +34,20 @@ namespace Interface
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            MongoAccessLayer mongo = new MongoAccessLayer("main", "credentials");
+            name = NameInput.Text;
             email = EmailInput.Text;
             password = PasswordInput.Password;
-            Dictionary<string, string> input = Serializer<string>.CreateDictionary(email, password);
-            string json = Serializer<Dictionary<string, string>>.SerializeToJson(input);
-            mongo.AddDocument(json);
-            EnterResource nextWindow = new EnterResource();
-            nextWindow.Show();
-            this.Close();
+            BillableAsset asset = new BillableAsset(name, email);
+            if (ModelView.AddCredentialToDatabase(asset, password))
+            {
+                ModelView.AddAssetToDatabase(asset);
+                EnterResource nextWindow = new EnterResource();
+                nextWindow.Show();
+                this.Close();
+            } else
+            {
+
+            }
         }
     }
 }
