@@ -8,16 +8,13 @@
         Title="Choose Task" Height="350" Width="500">
     <Grid x:Name="Master">
         <Label x:Name="ChooseProjectLabel" Content="Choose Project" HorizontalAlignment="Left" Margin="107,42,0,0" VerticalAlignment="Top" Width="100"/>
-
-        <ListBox x:Name="ChooseProject" HorizontalAlignment="Left" Height="108" Margin="81,81,0,0" VerticalAlignment="Top" Width="148" SelectionChanged="listBox_SelectionChanged">
+        <ListBox x:Name="ChooseProjectBox" HorizontalAlignment="Left" Height="108" Margin="81,81,0,0" VerticalAlignment="Top" Width="148">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding name}" />
+                    <TextBlock Text="{Binding projectName}" />
                 </DataTemplate>
-
             </ListBox.ItemTemplate>
         </ListBox>
-
         <Label x:Name="ChooseTaskLabel" Content="Choose Task" HorizontalAlignment="Left" Margin="295,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.752" Width="86"/>
         <ListBox x:Name="ChooseTaskBox" HorizontalAlignment="Left" Height="108" Margin="270,81,0,0" VerticalAlignment="Top" Width="142">
             <ListBox.ItemTemplate>

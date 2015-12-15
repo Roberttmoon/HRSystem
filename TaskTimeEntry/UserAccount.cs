@@ -35,16 +35,5 @@ namespace TaskTimeEntry
         {
             projects.Add(project);
         }
-
-        //public string GetProject()
-        //{
-            
-        //    //Project.Single().name
-        //    foreach (var item in projects )
-        //    {
-        //        return  item.name;
-        //    }
-        }
     }
-
 }

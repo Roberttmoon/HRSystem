@@ -8,7 +8,7 @@ namespace TaskTimeEntry
 {
     public class Task : Project
     {
-        public string taskName;
+        public string taskName { get; set; }
         public Guid taskID;
 
         public Task()
