@@ -83,6 +83,5 @@ namespace DataAccess
             string path = Path.Combine(Environment.CurrentDirectory, fileName);
             return File.ReadAllText(path);
         }
-
     }
 }

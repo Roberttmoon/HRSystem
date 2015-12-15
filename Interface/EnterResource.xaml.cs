@@ -36,9 +36,12 @@ namespace Interface
             name = NameInput.Text;
             email = EmailInput.Text;
             password = PasswordInput.Password;
+            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credentials");
             BillableAsset asset = new BillableAsset(name, email);
-            Dictionary<string, string> credentials = Serializer<string>.CreateDictionary(email, password);
-
+            string credentialJson = Serializer<Dictionary<string, string>>.SerializeToJson(Serializer<string>.CreateDictionary(email, password));
+            string assetJson = Serializer<BillableAsset>.SerializeToJson(asset);
+            mongo.AddDocument(credentialJson);
+            mongo.AddDocument(assetJson);
         }
     }
 }
