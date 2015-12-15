@@ -42,11 +42,16 @@ namespace DataAccess
             await _collection.InsertManyAsync(documents);
         }
 
-        public List<BsonDocument> QueryTopLevel(KeyValuePair<string, string> inputFilter)
+        public List<string> QueryTopLevel(KeyValuePair<string, string> inputFilter)
         {
+            List<string> jsonDocs = new List<string>();
             FilterDefinition<BsonDocument> filters = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value);
-            IFindFluent<BsonDocument, BsonDocument> result = _collection.Find(filters);
-
+            List<BsonDocument> result = _collection.Find(filters).ToList();
+            foreach(BsonDocument doc in result)
+            {
+                jsonDocs.Add(SerializeToString(doc));
+            }
+            return jsonDocs;
         }
 
         public async void UpdateTopLevel(KeyValuePair<string, string> updateFilter, KeyValuePair<string, string> updateSet)
@@ -58,7 +63,7 @@ namespace DataAccess
 
         public async void ReplaceDocument(KeyValuePair<string, string> replaceFilter, string json)
         {
-            BsonDocument document = Serialize(json);
+            BsonDocument document = DeserializeFromString(json);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(replaceFilter.Key, replaceFilter.Value);
             ReplaceOneResult result = await _collection.ReplaceOneAsync(filter, document);
         }
