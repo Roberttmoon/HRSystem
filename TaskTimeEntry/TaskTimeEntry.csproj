@@ -47,6 +47,7 @@
     <Compile Include="BillableAsset.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ITaskInteract.cs" />
+    <Compile Include="ModelView.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Serializer.cs" />
     <Compile Include="Task.cs" />

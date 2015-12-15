@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,10 @@ namespace DataAccess
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
         protected static IMongoCollection<BsonDocument> _collection;
-        private string _connectionString;
 
         public MongoAccessLayer(string database, string collection)
         {
-            _connectionString = GetConnectionString();
-            _client = new MongoClient(_connectionString);
+            _client = new MongoClient(SetMongoCredentials());
             _database = _client.GetDatabase(database);
             _collection = _database.GetCollection<BsonDocument>(collection);
         }
@@ -37,6 +36,7 @@ namespace DataAccess
         public async void AddDocument(string singleDocumentJson)
         {
             BsonDocument document = DeserializeFromString(singleDocumentJson);
+            Trace.WriteLine(document.ToString());
             await _collection.InsertOneAsync(document);
         }
 
@@ -48,9 +48,21 @@ namespace DataAccess
         public List<string> QueryTopLevel(KeyValuePair<string, string> inputFilter)
         {
             List<string> jsonDocs = new List<string>();
-            FilterDefinition<BsonDocument> filters = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value);
-            List<BsonDocument> result = _collection.Find(filters).ToList();
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value);
+            List<BsonDocument> result = _collection.Find(filter).ToList();
             foreach(BsonDocument doc in result)
+            {
+                jsonDocs.Add(SerializeToString(doc));
+            }
+            return jsonDocs;
+        }
+
+        public List<string> GetAllDocuments()
+        {
+            List<string> jsonDocs = new List<string>();
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Empty;
+            List<BsonDocument> result = _collection.Find(filter).ToList();
+            foreach (BsonDocument doc in result)
             {
                 jsonDocs.Add(SerializeToString(doc));
             }
@@ -75,6 +87,16 @@ namespace DataAccess
         {
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(deleteFilter.Key, deleteFilter.Value);
             DeleteResult result = await _collection.DeleteOneAsync(filter);
+        }
+
+        public MongoClientSettings SetMongoCredentials()
+        {
+            MongoCredential credential = MongoCredential.CreateMongoCRCredential("Main", "gandalf", "fooledeverybody");
+            MongoClientSettings settings = new MongoClientSettings
+            {
+                Credentials = new[] { credential }
+            };
+            return settings;
         }
 
         public string GetConnectionString()
