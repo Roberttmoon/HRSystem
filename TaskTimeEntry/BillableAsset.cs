@@ -18,12 +18,12 @@ namespace TaskTimeEntry
 
         }
 
-        public BillableAsset CreateAsset(string nameIncoming, string emailString)
+        public BillableAsset CreateAsset(string name, string email)
         {
             BillableAsset newAsset = new BillableAsset();
             id = Guid.NewGuid();
-            name = nameIncoming;
-            email = new MailAddress(emailString);
+            this.name = name;
+            this.email = new MailAddress(email);
             return newAsset;
         }
         
