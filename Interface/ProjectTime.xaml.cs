@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TaskTimeEntry;
 using DataAccess;
+using System.Text.RegularExpressions;
+
 namespace Interface
 {
     /// <summary>
@@ -23,7 +25,7 @@ namespace Interface
 
         public string clientName { get; private set; }
         public string projectName { get; private set; }
-        public string billableHours { get; private set; }
+        public int billableHours { get; private set; }
         public string comment { get; private set; }
 
         public ProjectTime()
@@ -36,8 +38,9 @@ namespace Interface
             Project newProj = new Project();
             MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credential");
             newProj.clientName = PTclientNameTextBox.Text;
-            projectName = PTprojectNameTextBox.Text;
-            billableHours = PTbillableHoursTextBox.Text;
+            newProj.projectName = PTprojectNameTextBox.Text;
+            int numOfBillHours = int.Parse(PTbillableHoursTextBox.Text);
+            newProj.billableHoursSigned = numOfBillHours;
             comment = PTcommentTextbox.Text;
             ProjectTime input = Serializer<Project>.SerializeToJson(clientName, projectName, billableHours, comment);
             string json = Serializer<string, string>>.SerializeToJson(input);
@@ -45,6 +48,14 @@ namespace Interface
             ProjectTime nextWindow = new ProjectTime();
             nextWindow.Show();
             this.Close();
+        }
+
+        private void PTbillableHoursTextBox_TextChanged(object sender, TextCompositionEventArgs e)
+        {
+            {
+                Regex regex = new Regex("[^0-9]+");
+                e.Handled = regex.IsMatch(e.Text);
+            }
         }
     }
 }
