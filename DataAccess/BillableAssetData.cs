@@ -13,6 +13,10 @@ namespace DataAccess
         public MailAddress resourceEmail { get; set; }
         public Guid resourceID { get; set; }
         public List<Dictionary<ProjectData, List<TaskData>>> resourceWork { get; set; }
+        public override string ToString()
+        {
+            return String.Format("{0} ProjectData");
+        }
 
         public BillableAssetData()
         {

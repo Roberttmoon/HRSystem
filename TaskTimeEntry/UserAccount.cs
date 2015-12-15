@@ -33,5 +33,11 @@ namespace TaskTimeEntry
         {
             projects.Add(project);
         }
+
+        public string GetProject()
+        {
+            throw new NotImplementedException();
+        }
     }
+
 }
