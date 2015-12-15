@@ -14,7 +14,7 @@ namespace DataAccess
 
         public FileAccessLayer(string fileName)
         {
-            fileName = String.Format("@{0}.json", fileName);
+            fileName = String.Format(@"{0}.json", fileName);
             path = Path.Combine(Environment.CurrentDirectory, fileName);
             if (!File.Exists(path))
             {

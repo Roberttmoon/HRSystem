@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -33,14 +34,14 @@ namespace Interface
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            name = NameInput.Text;
+            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credential");
             email = EmailInput.Text;
             password = PasswordInput.Password;
-            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credentials");
-            BillableAsset asset = new BillableAsset(name, email);
-            string credentialJson = Serializer<Dictionary<string, string>>.SerializeToJson(Serializer<string>.CreateDictionary(email, password));
-            string assetJson = Serializer<BillableAsset>.SerializeToJson(asset);
-            mongo.AddDocument(credentialJson);
+            Dictionary<string, string> input = Serializer<string>.CreateDictionary(email, password);
+            string json = Serializer<Dictionary<string, string>>.SerializeToJson(input);
+            Trace.WriteLine(json);
+            mongo.AddDocument(json);
+            // ModelView.AddCredentialsToFile(email, password);
             EnterResource nextWindow = new EnterResource();
             nextWindow.Show();
             this.Close();
