@@ -9,9 +9,10 @@ namespace TaskTimeEntry
     [Serializable]
     public class Project
     {
-        public string projectName { get; private set; } // Need
-        protected Guid projectID; 
-        protected string clientName; // Need
+
+        public string projectName { get; set; }
+        public string clientName { get; set; }
+
         protected Guid clientID;
         protected int billableHoursSigned; // Need 
         protected int billableHoursActual;
