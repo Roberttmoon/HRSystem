@@ -34,7 +34,7 @@ namespace Interface
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credential");
+            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credential"); // Database, Collection
             email = EmailInput.Text;
             password = PasswordInput.Password;
             Dictionary<string, string> input = Serializer<string>.CreateDictionary(email, password);
