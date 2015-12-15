@@ -10,7 +10,7 @@ namespace TaskTimeEntry
     public class Project
     {
         public string projectName { get; set; }
-        protected string clientName;
+        public string clientName { get; set; }
         protected Guid clientID;
         protected Guid projectID;
         protected int billableHoursSigned;
