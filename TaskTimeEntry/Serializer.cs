@@ -18,5 +18,12 @@ namespace TaskTimeEntry
         {
             return JsonConvert.DeserializeObject<T>(json);
         }
+
+        public static Dictionary<T, T> CreateDictionary(T data1, T data2)
+        {
+            Dictionary<T, T> mapped = new Dictionary<T, T>();
+            mapped.Add(data1, data2);
+            return mapped;
+        }
     }
 }

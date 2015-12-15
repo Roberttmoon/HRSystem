@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,12 @@ namespace DataAccess
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
         protected static IMongoCollection<BsonDocument> _collection;
+        private string _connectionString;
 
-        public MongoAccessLayer(string connectionString, string database, string collection)
+        public MongoAccessLayer(string database, string collection)
         {
-            _client = new MongoClient(connectionString);
+            _connectionString = GetConnectionString();
+            _client = new MongoClient(_connectionString);
             _database = _client.GetDatabase(database);
             _collection = _database.GetCollection<BsonDocument>(collection);
         }
@@ -42,11 +45,16 @@ namespace DataAccess
             await _collection.InsertManyAsync(documents);
         }
 
-        public List<BsonDocument> QueryTopLevel(KeyValuePair<string, string> inputFilter)
+        public List<string> QueryTopLevel(KeyValuePair<string, string> inputFilter)
         {
+            List<string> jsonDocs = new List<string>();
             FilterDefinition<BsonDocument> filters = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value);
-            IFindFluent<BsonDocument, BsonDocument> result = _collection.Find(filters);
-
+            List<BsonDocument> result = _collection.Find(filters).ToList();
+            foreach(BsonDocument doc in result)
+            {
+                jsonDocs.Add(SerializeToString(doc));
+            }
+            return jsonDocs;
         }
 
         public async void UpdateTopLevel(KeyValuePair<string, string> updateFilter, KeyValuePair<string, string> updateSet)
@@ -58,7 +66,7 @@ namespace DataAccess
 
         public async void ReplaceDocument(KeyValuePair<string, string> replaceFilter, string json)
         {
-            BsonDocument document = Serialize(json);
+            BsonDocument document = DeserializeFromString(json);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(replaceFilter.Key, replaceFilter.Value);
             ReplaceOneResult result = await _collection.ReplaceOneAsync(filter, document);
         }
@@ -67,6 +75,13 @@ namespace DataAccess
         {
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(deleteFilter.Key, deleteFilter.Value);
             DeleteResult result = await _collection.DeleteOneAsync(filter);
+        }
+
+        public string GetConnectionString()
+        {
+            string fileName = @"connectionstring.txt";
+            string path = Path.Combine(Environment.CurrentDirectory, fileName);
+            return File.ReadAllText(path);
         }
     }
 }

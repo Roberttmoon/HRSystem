@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TaskTimeEntry;
+using DataAccess;
 
 namespace Interface
 {
@@ -21,16 +22,28 @@ namespace Interface
     /// </summary>
     public partial class EnterResource : Window
     {
+        public string name { get; private set; }
+        public string email { get; private set; }
+        private string password;
+
         public EnterResource()
         {
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            BillableAsset newAsset = new BillableAsset();
-            newAsset = newAsset.CreateAsset(this.Name.Text, this.EMail.Text);
-
+            name = NameInput.Text;
+            email = EmailInput.Text;
+            password = PasswordInput.Password;
+            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credentials");
+            BillableAsset asset = new BillableAsset(name, email);
+            string credentialJson = Serializer<Dictionary<string, string>>.SerializeToJson(Serializer<string>.CreateDictionary(email, password));
+            string assetJson = Serializer<BillableAsset>.SerializeToJson(asset);
+            mongo.AddDocument(credentialJson);
+            EnterResource nextWindow = new EnterResource();
+            nextWindow.Show();
+            this.Close();
         }
     }
 }
