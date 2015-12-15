@@ -16,9 +16,11 @@ namespace TaskTimeEntry
 
         }
 
-        public void AddHours(int hours)
+        public int AddHours(int hours)
         {
-            throw new NotImplementedException();
+            int manHours = 160;
+            manHours = (manHours - hours);
+            return manHours;
         }
     }
 }
