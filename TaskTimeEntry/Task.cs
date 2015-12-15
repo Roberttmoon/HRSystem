@@ -16,10 +16,10 @@ namespace TaskTimeEntry
 
         }
 
-        public int AddHours(int hours)
+        public int AddHours(int hoursLogged)
         {
             int manHours = 160;
-            manHours = (manHours - hours);
+            manHours = (manHours - hoursLogged);
             return manHours;
         }
     }
