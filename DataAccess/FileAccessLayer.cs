@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class DataAccessLayer<T>
+    public class FileAccessLayer
     {
         public string path;
         public string fileName;
-        public JsonSerializer serializer;
 
-        public DataAccessLayer(string fileName)
+        public FileAccessLayer(string fileName)
         {
             fileName = String.Format("@{0}.json", fileName);
             path = Path.Combine(Environment.CurrentDirectory, fileName);
@@ -24,16 +22,19 @@ namespace DataAccess
             }
         }
 
-        public void WriteAllText(T data)
+        public void WriteAllText(string input)
         {
-            string input = JsonConvert.SerializeObject(data, Formatting.Indented);
             File.WriteAllText(path, input);
         }
 
-        public T GetAllData()
+        public void AppendAllText(string path, string content)
         {
-            string json = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<T>(json);
+            File.AppendAllText(path, content);
+        }
+
+        public string GetAllText()
+        {
+            return File.ReadAllText(path);
         }
     }
 }
