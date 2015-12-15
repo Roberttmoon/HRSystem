@@ -62,8 +62,7 @@ namespace DataAccess
         public List<string> GetAllDocuments()
         {
             List<string> jsonDocs = new List<string>();
-            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Empty;
-            List<BsonDocument> result = _collection.Find(filter).ToList();
+            List<BsonDocument> result = _collection.Find(new BsonDocument()).ToList();
             foreach (BsonDocument doc in result)
             {
                 jsonDocs.Add(SerializeToString(doc));
