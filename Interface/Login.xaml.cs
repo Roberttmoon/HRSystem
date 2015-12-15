@@ -37,17 +37,17 @@ namespace Interface
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ModelView.CheckCredentials(email, password))
-            {
-                BillableAsset asset = ModelView.GetAsset(email);
-                Application.Current.Resources["Asset"] = asset;
-                ChooseTask nextWindow = new ChooseTask();
-                nextWindow.Show();
-                Close();
-            } else
-            {
-                // Password Incorrect Window
-            }
+            //if (ModelView.CheckCredentials(email, password))
+            //{
+            //    BillableAsset asset = ModelView.GetAsset(email);
+            //    Application.Current.Resources["Asset"] = asset;
+            //    ChooseTask nextWindow = new ChooseTask();
+            //    nextWindow.Show();
+            //    Close();
+            //} else
+            //{
+            //    // Password Incorrect Window
+            //}
         }
     }
 }

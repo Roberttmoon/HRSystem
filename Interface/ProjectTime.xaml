@@ -6,17 +6,18 @@
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
         Title="ProjectTime" Height="376.6" Width="476.474">
-    <Grid>
-        <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="23,37,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="Project&#xD;&#xA;" HorizontalAlignment="Left" Margin="23,81,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy1" Content="Comment" HorizontalAlignment="Left" Margin="23,166,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="105,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="105,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="105,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
-        <Label x:Name="label_Copy2" Content="Log Hours" HorizontalAlignment="Left" Margin="23,122,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="105,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
-        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="105,219,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="button_Copy" Content="Clear" HorizontalAlignment="Left" Margin="206,219,0,0" VerticalAlignment="Top" Width="75"/>
 
-    </Grid>
+    <Grid x:Name="PTclientNameAdd">
+        <Label x:Name="Client_Name" Content="Client Name" HorizontalAlignment="Left" Margin="23,37,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PTprojectNameAdd" Content="Project Name&#xA;" HorizontalAlignment="Left" Margin="23,81,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PTcommentAdd" Content="Comment" HorizontalAlignment="Left" Margin="23,166,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PTclientNameTextBox" HorizontalAlignment="Left" Height="23" Margin="105,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <TextBox x:Name="PTprojectNameTextBox" HorizontalAlignment="Left" Height="23" Margin="105,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <TextBox x:Name="PTcommentTextbox" HorizontalAlignment="Left" Height="23" Margin="105,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <Label x:Name="PTbillableHoursAdd" Content="Billable Hours" HorizontalAlignment="Left" Margin="23,122,0,0" VerticalAlignment="Top" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="PTbillableHoursTextBox" HorizontalAlignment="Left" Height="23" Margin="105,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="PTbillableHoursTextBox_TextChanged"/>
+        <Button x:Name="PTaddButton" Content="Add" HorizontalAlignment="Left" Margin="105,219,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click"/>
+        <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="206,219,0,0" VerticalAlignment="Top" Width="75"/>
+
+        </Grid>
 </Window>
