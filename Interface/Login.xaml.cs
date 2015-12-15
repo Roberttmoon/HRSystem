@@ -20,9 +20,13 @@ namespace Interface
     /// </summary>
     public partial class Login : Window
     {
+        public string email { get; set; }
+        public string password { get; set; }
+
         public Login()
         {
             InitializeComponent();
+            Master.DataContext = this;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -33,7 +37,17 @@ namespace Interface
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ModelView.CheckCredentials(email, password))
+            {
+                BillableAsset asset = ModelView.GetAsset(email);
+                Application.Current.Resources["Asset"] = asset;
+                ChooseTask nextWindow = new ChooseTask();
+                nextWindow.Show();
+                this.Close();
+            } else
+            {
+                // Password Incorrect Window
+            }
         }
     }
 }

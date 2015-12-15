@@ -48,9 +48,21 @@ namespace DataAccess
         public List<string> QueryTopLevel(KeyValuePair<string, string> inputFilter)
         {
             List<string> jsonDocs = new List<string>();
-            FilterDefinition<BsonDocument> filters = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value);
-            List<BsonDocument> result = _collection.Find(filters).ToList();
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value);
+            List<BsonDocument> result = _collection.Find(filter).ToList();
             foreach(BsonDocument doc in result)
+            {
+                jsonDocs.Add(SerializeToString(doc));
+            }
+            return jsonDocs;
+        }
+
+        public List<string> GetAllDocuments()
+        {
+            List<string> jsonDocs = new List<string>();
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Empty;
+            List<BsonDocument> result = _collection.Find(filter).ToList();
+            foreach (BsonDocument doc in result)
             {
                 jsonDocs.Add(SerializeToString(doc));
             }

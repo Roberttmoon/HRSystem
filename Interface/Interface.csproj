@@ -94,7 +94,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelView.cs" />
     <Compile Include="ProjectTime.xaml.cs">
       <DependentUpon>ProjectTime.xaml</DependentUpon>
     </Compile>

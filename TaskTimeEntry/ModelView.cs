@@ -2,6 +2,7 @@
 using TaskTimeEntry;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,28 @@ namespace Interface
                     file.WriteAllText(json);
                 }
             }
+        }
+
+        public static bool CheckCredentials(string email, string password)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credential");
+            List<string> jsonDocs = mongo.GetAllDocuments();
+            foreach(string doc in jsonDocs)
+            {
+                Trace.WriteLine(doc);
+            }
+            throw new NotImplementedException();
+        }
+
+        public static BillableAsset GetAsset(string email)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Assets");
+            List<string> jsonDocs = mongo.GetAllDocuments();
+            foreach(string doc in jsonDocs)
+            {
+                Trace.WriteLine(doc);
+            }
+            throw new NotImplementedException();
         }
     }
 }
