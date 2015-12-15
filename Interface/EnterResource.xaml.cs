@@ -41,7 +41,9 @@ namespace Interface
             string credentialJson = Serializer<Dictionary<string, string>>.SerializeToJson(Serializer<string>.CreateDictionary(email, password));
             string assetJson = Serializer<BillableAsset>.SerializeToJson(asset);
             mongo.AddDocument(credentialJson);
-            mongo.AddDocument(assetJson);
+            EnterResource nextWindow = new EnterResource();
+            nextWindow.Show();
+            this.Close();
         }
     }
 }
