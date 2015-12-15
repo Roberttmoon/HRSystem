@@ -30,6 +30,13 @@ namespace DataAccess
             File.WriteAllText(path, input);
         }
 
+        public void AppendToJSON<T>(T myObject)
+        {
+            string json = JsonConvert.SerializeObject(myObject);
+            File.AppendAllText(path, "," + json);
+
+        }
+
         public T GetAllData()
         {
             string json = File.ReadAllText(path);
