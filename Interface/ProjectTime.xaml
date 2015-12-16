@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="Enter Project" Height="376.6" Width="476.474">
 
+
+
     <Grid x:Name="Master">
         <Label x:Name="Client_Name" Content="Client:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.42,2.555"/>
         <ComboBox x:Name="ChooseClient" ItemsSource="{Binding Path=clients}" DisplayMemberPath="name" SelectedValuePath="name" SelectedValue="{Binding Path=Client}" HorizontalAlignment="Left" Margin="101,70,0,0" VerticalAlignment="Top" Width="120"/>
@@ -20,4 +22,5 @@
         <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="385,318,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter the details of your new project below to get started." VerticalAlignment="Top" Height="28" Width="450"/>
     </Grid>
+
 </Window>
