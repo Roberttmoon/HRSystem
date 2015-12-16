@@ -154,11 +154,14 @@ namespace TaskTimeEntry
 
         public static void UpdateProjectWithAsset(Project project, BillableAsset asset)
         {
-            MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
+            MongoAccessLayer mongoClient = new MongoAccessLayer("main", "clients");
+            MongoAccessLayer mongoAsset = new MongoAccessLayer("main", "assets");
             Client client = GetClient(project.clientID);
             project.AddResource(asset._id);
+            asset.PopulateProjects();
             client.ReplaceProject(project._id, project);
-            StoreClient(client, mongo);
+            StoreClient(client, mongoClient);
+            StoreAsset(asset, mongoAsset);
         }
     }
 }

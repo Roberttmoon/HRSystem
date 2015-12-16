@@ -49,5 +49,12 @@ namespace Interface
             addUser.Show();
             Close();
         }
+
+        private void EditProject_Click(object sender, RoutedEventArgs e)
+        {
+            EditProject editProject = new EditProject();
+            editProject.Show();
+            Close();
+        }
     }
 }

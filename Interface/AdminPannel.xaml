@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="AdminPannel" Height="150" Width="166.525">
+        Title="AdminPannel" Height="260.593" Width="274.575">
     <Grid>
         <Button x:Name="WorkOnProject" Content="Work on project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,10,0,0" TabIndex="0" Click="WorkOnProject_Click"/>
         <Button x:Name="AddATask" Content="Add task to project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,35,0,0" TabIndex="1" Click="AddATask_Click"/>
         <Button x:Name="AddAProject" Content="Add Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,60,0,0" TabIndex="2" Click="AddAProject_Click"/>
-        <Button x:Name="AddUsers" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,85,0,0" TabIndex="3" Click="AddUsers_Click"/>
+        <Button x:Name="EditProject" Content="Edit Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,85,0,0" TabIndex="3" Click="EditProject_Click"/>
+        <Button x:Name="AddUsers" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,110,0,0" TabIndex="4" Click="AddUsers_Click"/>
 
     </Grid>
 </Window>
