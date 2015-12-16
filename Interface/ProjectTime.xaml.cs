@@ -35,7 +35,6 @@ namespace Interface
         private void PTaddButton_Click(object sender, RoutedEventArgs e)
         {
             Project newProj = new Project();
-            newProj.clientName = PTclientNameTextBox.Text;
             newProj.projectName = PTprojectNameTextBox.Text;
             int numOfBillHours = Int32.Parse(PTbillableHoursTextBox.Text);
             newProj.billableHoursSigned = numOfBillHours;
