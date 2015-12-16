@@ -38,11 +38,21 @@ namespace Interface
         {
             if (ModelView.CheckCredentials(email, password))
             {
-                BillableAsset asset = ModelView.GetAsset(email);
-                Application.Current.Resources["asset"] = asset;
-                ChooseTask nextWindow = new ChooseTask();
-                nextWindow.Show();
-                this.Close();
+                try
+                {
+                    BillableAsset asset = ModelView.GetAsset(email);
+                    Application.Current.Resources["asset"] = asset;
+                    ChooseTask nextWindow = new ChooseTask();
+                    nextWindow.Show();
+                    this.Close();
+                }
+                catch
+                {
+                    Client client = ModelView.GetClient(email);
+                    Application.Current.Resources["client"] = client;
+                    
+                }
+                    
             } else
             {
                 // Show Incorrect Login Info Window

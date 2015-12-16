@@ -60,6 +60,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Credentials.cs" />
     <Compile Include="ITaskInteract.cs" />
+    <Compile Include="LogInControl.cs" />
     <Compile Include="ModelView.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Serializer.cs" />
