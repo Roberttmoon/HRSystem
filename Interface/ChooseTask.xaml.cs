@@ -25,7 +25,7 @@ namespace Interface
             InitializeComponent();
             resource = (BillableAsset)Application.Current.FindResource("BillableAsset");
             Master.DataContext = resource;
-            ChooseProjectBox.ItemsSource = resource.projects;                           
+            ChooseProjectBox.ItemsSource = resource.projects;                        
         }
            
         private void ChooseProjectBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

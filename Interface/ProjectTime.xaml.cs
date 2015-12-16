@@ -23,6 +23,7 @@ namespace Interface
     /// </summary>
     public partial class ProjectTime : Window
     {
+        public List<Client> clients = ModelView.GetAllClients();
         public string clientName { get; private set; }
         public string projectName { get; private set; }
         public int billableHours { get; private set; }
