@@ -26,7 +26,7 @@ namespace Interface
         public TaskTime()
         {
             InitializeComponent();
-            Master.DataContext = this;
+            // Master.DataContext = this;
         }
 
         public int Save_Click(object sender, RoutedEventArgs e)

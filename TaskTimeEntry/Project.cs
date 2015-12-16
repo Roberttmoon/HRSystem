@@ -15,14 +15,14 @@ namespace TaskTimeEntry
         public int billableHoursSigned { get; set; }
         public int billableHoursActual { get; set; }
         public bool statusComplete { get; set; }
-        public List<BillableAsset> resources { get; private set; }
+        public List<Guid> resources { get; private set; }
         public List<Task> tasks { get; private set; }
         public List<string> comments { get; private set; }
 
         public Project()
         {
             _id = Guid.NewGuid();
-            resources = new List<BillableAsset>();
+            resources = new List<Guid>();
             tasks = new List<Task>();
             comments = new List<string>();
             billableHoursActual = 0;
@@ -39,9 +39,9 @@ namespace TaskTimeEntry
             comments.Add(comment);
         }
 
-        public void AddResource(BillableAsset asset)
+        public void AddResource(Guid assetID)
         {
-            resources.Add(asset);
+            resources.Add(assetID);
         }
 
         public void AddBillableHours(int hours)
