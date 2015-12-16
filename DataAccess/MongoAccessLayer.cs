@@ -49,11 +49,6 @@ namespace DataAccess
             _collection.InsertOne(document);
         }
 
-
-
-
-
-
         public BsonDocument JsonStringToBson(string json)
         {
             return MongoDB.Bson.Serialization.BsonSerializer.Deserialize<BsonDocument>(json);
@@ -100,16 +95,6 @@ namespace DataAccess
         {
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(deleteFilter.Key, deleteFilter.Value);
             DeleteResult result = await _collection.DeleteOneAsync(filter);
-        }
-
-        public MongoClientSettings SetMongoCredentials()
-        {
-            MongoCredential credential = MongoCredential.CreateMongoCRCredential("Main", "gandalf", "fooledeverybody");
-            MongoClientSettings settings = new MongoClientSettings
-            {
-                Credentials = new[] { credential }
-            };
-            return settings;
         }
 
         public string GetConnectionString()

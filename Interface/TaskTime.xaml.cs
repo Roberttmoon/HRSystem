@@ -29,9 +29,7 @@ namespace Interface
         public int Save_Click(object sender, RoutedEventArgs e)
         {
             int hoursLogged = int.Parse(LogBox.Text);
-            return hoursLogged;
-
-
+            throw new NotImplementedException();
         }
     }
 }

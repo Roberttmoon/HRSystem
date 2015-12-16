@@ -9,6 +9,7 @@ using DataAccess;
 
 namespace TaskTimeEntry
 {
+    [Serializable]
     public class BillableAsset : UserAccount
     {
         public float hourlyRate { get; private set; }
@@ -16,8 +17,8 @@ namespace TaskTimeEntry
         public BillableAsset(string name, string email)
         {
             this.name = name;
-            this.email = new MailAddress(email);
-            id = Guid.NewGuid();
+            this.email = email;
+            _id = Guid.NewGuid();
             this.projects = new List<Project>();
             this.tasks = new List<Task>();
         }

@@ -7,21 +7,22 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
+    [Serializable]
     public class Credentials
     {
-        private MailAddress email;
-        private Guid id;
-        private string password;
+        public string email { get; private set; }
+        public Guid _id { get; private set; }
+        public string password { get; private set; }
 
         public Credentials()
         {
 
         }
 
-        public Credentials(MailAddress email, Guid id, string password)
+        public Credentials(string email, Guid id, string password)
         {
             this.email = email;
-            this.id = id;
+            _id = id;
             this.password = password;
         }
     }

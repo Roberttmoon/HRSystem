@@ -20,8 +20,8 @@ namespace TaskTimeEntry
         public Client(string name, string email, float discount)
         {
             this.name = name;
-            this.email = new MailAddress(email);
-            this.id = Guid.NewGuid();
+            this.email = email;
+            this._id = Guid.NewGuid();
             this.projects = new List<Project>();
             this.tasks = new List<Task>();
         }
