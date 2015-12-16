@@ -20,6 +20,13 @@ namespace TaskTimeEntry
             projects.Add(project);
         }
 
+        public void ReplaceProject(Guid projectID, Project newProject)
+        {
+            Project projectToReplace = projects.Find(item => item._id == projectID);
+            int replaceIndex = projects.IndexOf(projectToReplace);
+            projects[replaceIndex] = newProject;
+        }
+
         public int LogTime(Task task, float time, string comment)
         {
             throw new NotImplementedException();
