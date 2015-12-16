@@ -14,7 +14,9 @@ using System.Windows.Shapes;
 using TaskTimeEntry;
 using DataAccess;
 using System.Text.RegularExpressions;
-namespace Interface
+
+
+namespace Interface 
 {
     /// <summary>
     /// Interaction logic for ProjectTime.xaml
@@ -39,6 +41,19 @@ namespace Interface
             int numOfBillHours = Int32.Parse(PTbillableHoursTextBox.Text);
             newProj.billableHoursSigned = numOfBillHours;
             comment = PTcommentTextbox.Text;
+        }
+
+        private void PTclearButton_Click(object sender, RoutedEventArgs e)
+        {
+            PTclientNameTextBox.Text = String.Empty;
+            PTprojectNameTextBox.Text = String.Empty;
+            PTprojectNameTextBox.Text = String.Empty;
+            PTbillableHoursTextBox.Text = String.Empty;
+
+
+
+
+
         }
 
         //private void PTbillableHoursTextBox_TextChanged(object sender, TextCompositionEventArgs e)
