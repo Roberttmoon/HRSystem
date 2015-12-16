@@ -156,7 +156,7 @@ namespace TaskTimeEntry
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
             Client client = GetClient(project.clientID);
-            project.AddResource(asset);
+            project.AddResource(asset._id);
             client.ReplaceProject(project._id, project);
             StoreClient(client, mongo);
         }

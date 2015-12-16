@@ -22,7 +22,6 @@ namespace Interface
     {
         Company company;
         List<Project> projects;
-        List<BillableAsset> resources;
 
         public EditProject()
         {
