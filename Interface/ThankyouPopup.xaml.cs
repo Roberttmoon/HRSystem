@@ -23,5 +23,10 @@ namespace Interface
         {
             InitializeComponent();
         }
+
+        private void ThankYouButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
