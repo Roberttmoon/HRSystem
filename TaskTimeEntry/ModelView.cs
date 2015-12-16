@@ -96,6 +96,13 @@ namespace TaskTimeEntry
             return client.Find(item => item.email == email);
         }
 
+        public static Client GetClient(Guid id)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
+            List<Client> client = mongo.GetAllDocuments<Client>();
+            return client.Find(item => item._id == id);
+        }
+
         public static List<Client> GetAllClients()
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");

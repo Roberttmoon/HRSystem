@@ -189,9 +189,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="YACHT-Smiley-Black-800.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\YACHT-Smiley-Black-800.png" />
     <Resource Include="buggalo-error.png" />
   </ItemGroup>
