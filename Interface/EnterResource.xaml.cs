@@ -38,16 +38,8 @@ namespace Interface
             email = EmailInput.Text;
             password = PasswordInput.Password;
             BillableAsset asset = new BillableAsset(name, email);
-            if (ModelView.AddCredentialToDatabase(asset, password))
-            {
-                ModelView.AddAssetToDatabase(asset);
-                EnterResource nextWindow = new EnterResource();
-                nextWindow.Show();
-                this.Close();
-            } else
-            {
-
-            }
+            ModelView.AddCredentialsToDatabase(asset, password);
+            ModelView.AddAssetToDatabase(asset);
         }
     }
 }

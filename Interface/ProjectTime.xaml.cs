@@ -34,26 +34,19 @@ namespace Interface
         private void PTaddButton_Click(object sender, RoutedEventArgs e)
         {
             Project newProj = new Project();
-            Serializer<Project>.SerializeToJson(newProj);
-
-            MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credential");
             newProj.clientName = PTclientNameTextBox.Text;
             newProj.projectName = PTprojectNameTextBox.Text;
-            int numOfBillHours = int.Parse(PTbillableHoursTextBox.Text);
+            int numOfBillHours = Int32.Parse(PTbillableHoursTextBox.Text);
             newProj.billableHoursSigned = numOfBillHours;
-            comment = PTcommentTextbox.Text;           
-            //mongo.AddDocument(json);
-            ProjectTime nextWindow = new ProjectTime();
-            nextWindow.Show();
-            this.Close();
+            comment = PTcommentTextbox.Text;
         }
 
-        private void PTbillableHoursTextBox_TextChanged(object sender, TextCompositionEventArgs e)
-        {
-            {
-                Regex regex = new Regex("[^0-9]+");
-                e.Handled = regex.IsMatch(e.Text);
-            }
-        }
+        //private void PTbillableHoursTextBox_TextChanged(object sender, TextCompositionEventArgs e)
+        //{
+        //    {
+        //        Regex regex = new Regex("[^0-9]+");
+        //        e.Handled = regex.IsMatch(e.Text);
+        //    }
+        //}
     }
 }

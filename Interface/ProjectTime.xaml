@@ -14,8 +14,8 @@
         <TextBox x:Name="PTclientNameTextBox" HorizontalAlignment="Left" Height="23" Margin="105,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
         <TextBox x:Name="PTprojectNameTextBox" HorizontalAlignment="Left" Height="23" Margin="105,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
         <TextBox x:Name="PTcommentTextbox" HorizontalAlignment="Left" Height="23" Margin="105,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
-        <Label x:Name="PTbillableHoursAdd" Content="Billable Hours" HorizontalAlignment="Left" Margin="23,122,0,0" VerticalAlignment="Top" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="PTbillableHoursTextBox" HorizontalAlignment="Left" Height="23" Margin="105,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="PTbillableHoursTextBox_TextChanged"/>
+        <Label x:Name="PTbillableHoursAdd" Content="Billable Hours" HorizontalAlignment="Left" Margin="23,122,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PTbillableHoursTextBox" HorizontalAlignment="Left" Height="23" Margin="105,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
         <Button x:Name="PTaddButton" Content="Add" HorizontalAlignment="Left" Margin="105,219,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click"/>
         <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="206,219,0,0" VerticalAlignment="Top" Width="75"/>
 
