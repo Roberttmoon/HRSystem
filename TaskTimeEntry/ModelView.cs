@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interface
+namespace TaskTimeEntry
 {
     public static class ModelView
     {
@@ -83,6 +83,18 @@ namespace Interface
             MongoAccessLayer mongo = new MongoAccessLayer("main", "assets");
             List<BillableAsset> assets = mongo.GetAllDocuments<BillableAsset>();
             return assets.Find(item => item.email == email);
+        }
+
+        public static List<Client> GetAllClients()
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
+            return mongo.GetAllDocuments<Client>();
+        }
+
+        public static List<BillableAsset> GetAllAssets()
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "assets");
+            return mongo.GetAllDocuments<BillableAsset>();
         }
     }
 }

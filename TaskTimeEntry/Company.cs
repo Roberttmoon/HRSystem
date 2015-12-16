@@ -8,9 +8,14 @@ namespace TaskTimeEntry
 {
     public class Company
     {
-        List<BillableAsset> BillableAsset;
-        List<Project> Project;
-        List<Client> Client;
+        public List<BillableAsset> assets;
+        public List<Client> clients;
+
+        public Company()
+        {
+            assets = ModelView.GetAllAssets();
+            clients = ModelView.GetAllClients();
+        }
 
         public void AddProject(Project project)
         {
