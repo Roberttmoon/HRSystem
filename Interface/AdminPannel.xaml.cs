@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskTimeEntry;
 
 namespace Interface
 {
@@ -19,6 +20,8 @@ namespace Interface
     /// </summary>
     public partial class AdminPannel : Window
     {
+        private TaskTimeEntry.Task task;
+
         public AdminPannel()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace Interface
 
         private void WorkOnProject_Click(object sender, RoutedEventArgs e)
         {
-            TaskTime taskTime = new TaskTime();
+            TaskTime taskTime = new TaskTime(task);
             
         }
         private void AddATask_Click(object sender, RoutedEventArgs e)

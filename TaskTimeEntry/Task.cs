@@ -26,9 +26,9 @@ namespace TaskTimeEntry
 
         public int AddHours(int hoursLogged)
         {
-            int manHours = 160;
-            manHours = (manHours - hoursLogged);
-            return manHours;
+            int LogTime = 160;
+            LogTime = (LogTime - hoursLogged);
+            return LogTime;
         }
 
         public void AddComment(string comment)
