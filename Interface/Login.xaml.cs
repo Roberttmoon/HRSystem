@@ -46,12 +46,17 @@ namespace Interface
                     {
                         BillableAsset asset = ModelView.GetAsset(email);
                         Application.Current.Resources["asset"] = asset;
-                        ChooseTask nextWindow = new ChooseTask();
-                        nextWindow.Show();
-                        this.Close();
-                    }
-                    catch
-                    {
+                        if (asset.privilege == false) {
+                            ChooseTask chooseTask = new ChooseTask();
+                            chooseTask.Show();
+                            Close();
+                        }
+                        else if (asset.privilege) {
+                            AdminPannel admin = new AdminPannel();
+                            admin.Show();
+                            Close();
+                        }
+                    }catch{
                         Client client = ModelView.GetClient(email);
                         Application.Current.Resources["client"] = client;
                         ThankyouPopup popup = new ThankyouPopup();
