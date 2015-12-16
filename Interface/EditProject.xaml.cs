@@ -22,6 +22,8 @@ namespace Interface
     {
         Company company;
         List<Project> projects;
+        List<BillableAsset> resources;
+
         public EditProject()
         {
             InitializeComponent();
@@ -31,5 +33,27 @@ namespace Interface
             ChooseProject.ItemsSource = projects;
         }
 
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu menu = new MainMenu();
+            menu.Show();
+            Close();
+        }
+
+        private void AddTask_Click(object sender, RoutedEventArgs e)
+        {
+            Project project = (Project)ChooseProject.SelectedItem;
+            Client client = ModelView.GetClient(project.clientID);
+            AddTask addTask = new AddTask(client, project);
+            addTask.Show();
+            Close();
+        }
+
+        private void AddResource_Click(object sender, RoutedEventArgs e)
+        {
+            AddResourceToProject addResource = new AddResourceToProject(company.assets, (Project)ChooseProject.SelectedItem);
+            addResource.Show();
+            Close();
+        }
     }
 }

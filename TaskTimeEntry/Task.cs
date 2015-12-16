@@ -11,6 +11,7 @@ namespace TaskTimeEntry
         public string taskName { get; set; }
         public Guid _id;
         public Guid projectID;
+        public int hoursLogged{ get; set;}           
         public Guid clientID;
         public float timeRemaining;
         public List<string> comments;

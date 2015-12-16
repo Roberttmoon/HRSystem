@@ -16,9 +16,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
-        <Button x:Name="AddTask" Content="Add Task" HorizontalAlignment="Left" Margin="217,263,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="AddResource" Content="Add Resource" HorizontalAlignment="Left" Margin="122,263,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.688,0.65"/>
-        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="297,262,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="AddTask" Content="Add Task" HorizontalAlignment="Left" Margin="217,262,0,0" VerticalAlignment="Top" Width="75" Click="AddTask_Click"/>
+        <Button x:Name="AddResource" Content="Add Resource" HorizontalAlignment="Left" Margin="122,262,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.688,0.65" Click="AddResource_Click"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="297,262,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click"/>
     </Grid>
 </Window>
