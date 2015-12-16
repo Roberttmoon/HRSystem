@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace Interface
 {
     /// <summary>
-    /// Interaction logic for LoginPopUp.xaml
+    /// Interaction logic for ThankyouPopup.xaml
     /// </summary>
-    public partial class LoginPopUp : Window
+    public partial class ThankyouPopup : Window
     {
-        public LoginPopUp()
+        public ThankyouPopup()
         {
             InitializeComponent();
-        }
-
-        private void ok_Click(object sender, RoutedEventArgs e)
-        {
-            
-            Close();
         }
     }
 }

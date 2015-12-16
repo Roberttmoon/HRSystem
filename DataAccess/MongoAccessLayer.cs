@@ -48,6 +48,13 @@ namespace DataAccess
             _collection.InsertOne(document);
         }
 
+        public async void ReplaceDocument(string newDocJson, KeyValuePair<string, Guid> id)
+        {
+            BsonDocument newDocument = JsonStringToBson(newDocJson);
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", id.Value.ToString());
+            await _collection.ReplaceOneAsync(filter, newDocument);
+        }
+
         public BsonDocument JsonStringToBson(string json)
         {
             return MongoDB.Bson.Serialization.BsonSerializer.Deserialize<BsonDocument>(json);
@@ -56,7 +63,7 @@ namespace DataAccess
         public string SerializeBsonToString(BsonDocument document)
         {
             return BsonExtensionMethods.ToJson(document);
-        } 
+        }
 
 
         public async void AddMultipleBson(List<BsonDocument> documents)
@@ -64,10 +71,10 @@ namespace DataAccess
             await _collection.InsertManyAsync(documents);
         }
 
-        public List<string> QueryTopLevel(KeyValuePair<string, string> inputFilter)
+        public List<string> QueryTopLevel<T>(KeyValuePair<string, T> inputFilter)
         {
             List<string> jsonDocs = new List<string>();
-            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value);
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value.ToString());
             List<BsonDocument> result = _collection.Find(filter).ToList();
             foreach(BsonDocument doc in result)
             {

@@ -16,9 +16,10 @@
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="201*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="textBlock" Grid.Column="4" HorizontalAlignment="Left" Margin="50,38,0,-73" TextWrapping="Wrap" Text="Invalid Credentials" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="255" FontSize="26.667" FontFamily="Segoe UI Semibold"/>
+        <TextBlock x:Name="textBlock" Grid.Column="4" HorizontalAlignment="Left" Margin="48,21,0,-57" TextWrapping="Wrap" Text="Invalid Credentials" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="255" FontSize="26.667" FontFamily="Segoe UI Semibold"/>
         <Image x:Name="buggalo_error_png" Grid.ColumnSpan="5" Margin="16,38,55,-90" Source="buggalo-error.png" Stretch="Fill"/>
         <Image x:Name="image" Grid.Column="6" HorizontalAlignment="Left" Height="0" Margin="24,124,0,-124" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="ok" Grid.ColumnSpan="2" Content="ok     :(" HorizontalAlignment="Left" Height="22" Margin="18,68,0,-90" VerticalAlignment="Top" Width="75" Grid.Column="5" Click="ok_Click"/>
 
     </Grid>
 </Window>
