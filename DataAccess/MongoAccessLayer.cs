@@ -20,7 +20,6 @@ namespace DataAccess
         public MongoAccessLayer(string database, string collection)
         {
             _connectionString = GetConnectionString();
-            Trace.WriteLine(_connectionString);
             _client = new MongoClient(_connectionString);
             _database = _client.GetDatabase(database);
             _collection = _database.GetCollection<BsonDocument>(collection);
@@ -101,7 +100,13 @@ namespace DataAccess
         {
             string fileName = @"connectionstring.txt";
             string path = Path.Combine(Environment.CurrentDirectory, fileName);
-            return File.ReadAllText(path);
+            try
+            {
+                return File.ReadAllText(path);
+            } catch
+            {
+                return "mongodb://gandalf:fooledeverybody@ds047722.mongolab.com:47722/main";
+            }
         }
     }
 }

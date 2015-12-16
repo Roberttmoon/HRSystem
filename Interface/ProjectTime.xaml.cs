@@ -24,44 +24,26 @@ namespace Interface
     public partial class ProjectTime : Window
     {
         public List<Client> clients = ModelView.GetAllClients();
-        public string clientName { get; private set; }
-        public string projectName { get; private set; }
-        public int billableHours { get; private set; }
-        public string comment { get; private set; }
+        public Project project = new Project();
 
         public ProjectTime()
         {
             InitializeComponent();
+            DataContext = project;
+            ChooseClient.DataContext = clients;
         }
 
         private void PTaddButton_Click(object sender, RoutedEventArgs e)
         {
-            Project newProj = new Project();
-            newProj.projectName = PTprojectNameTextBox.Text;
-            int numOfBillHours = Int32.Parse(PTbillableHoursTextBox.Text);
-            newProj.billableHoursSigned = numOfBillHours;
-            comment = PTcommentTextbox.Text;
+            project.billableHoursSigned = Int32.Parse(PTbillableHoursTextBox.Text);
+            project.AddComment(DateTime.Now, PTcommentTextbox.Text);
         }
 
         private void PTclearButton_Click(object sender, RoutedEventArgs e)
         {
-            //PTclientNameTextBox.Text = String.Empty;
             PTprojectNameTextBox.Text = String.Empty;
             PTprojectNameTextBox.Text = String.Empty;
             PTbillableHoursTextBox.Text = String.Empty;
-
-
-
-
-
         }
-
-        //private void PTbillableHoursTextBox_TextChanged(object sender, TextCompositionEventArgs e)
-        //{
-        //    {
-        //        Regex regex = new Regex("[^0-9]+");
-        //        e.Handled = regex.IsMatch(e.Text);
-        //    }
-        //}
     }
 }
