@@ -115,18 +115,22 @@ namespace TaskTimeEntry
             mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", asset._id));
         }
 
-        public static void ReplaceClient(Client client)
+        public static void UpdateClient(Project project, Client client)
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
+            project.clientID = client._id;
+            client.AddProject(project);
             string json = Serializer<Client>.SerializeToJson(client);
             mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", client._id));
         }
 
-        public static void GetClientThroughFilter(Client client) 
+        public static void UpdateProject(Client client, Project project, Task task)
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
-            List<string> json = mongo.QueryTopLevel(new KeyValuePair<string, Guid>("_id", client._id));
-            Trace.WriteLine(json.Count);
+            project.AddTask(task);
+            client.ReplaceProject(project._id, project);
+            string json = Serializer<Client>.SerializeToJson(client);
+            mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", client._id));
         }
     }
 }

@@ -39,10 +39,11 @@ namespace Interface
             project.billableHoursSigned = Int32.Parse(PTbillableHoursTextBox.Text);
             project.AddComment(PTcommentTextbox.Text);
             Client client = (Client)ChooseClient.SelectedItem;
-            project.clientID = client._id;
-            client.AddProject(project);
-            ModelView.ReplaceClient(client);
+            ModelView.UpdateClient(project, client);
             MessageBox.Show("Success. Project added to client.");
+            AddTask addTask = new AddTask(client, project);
+            addTask.Show();
+            Close();
         }
 
         private void PTclearButton_Click(object sender, RoutedEventArgs e)
