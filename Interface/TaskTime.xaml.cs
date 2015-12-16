@@ -27,7 +27,7 @@ namespace Interface
         {
             InitializeComponent();
             this.task = task;
-            Master.DataContext = this;
+
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
