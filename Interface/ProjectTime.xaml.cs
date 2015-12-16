@@ -45,7 +45,7 @@ namespace Interface
 
         private void PTclearButton_Click(object sender, RoutedEventArgs e)
         {
-            PTclientNameTextBox.Text = String.Empty;
+            //PTclientNameTextBox.Text = String.Empty;
             PTprojectNameTextBox.Text = String.Empty;
             PTprojectNameTextBox.Text = String.Empty;
             PTbillableHoursTextBox.Text = String.Empty;
