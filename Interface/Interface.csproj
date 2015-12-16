@@ -70,6 +70,12 @@
     <Compile Include="AddTask.xaml.cs">
       <DependentUpon>AddTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminPannel.xaml.cs">
+      <DependentUpon>AdminPannel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditProject.xaml.cs">
+      <DependentUpon>EditProject.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginPopUp.xaml.cs">
       <DependentUpon>LoginPopUp.xaml</DependentUpon>
     </Compile>
@@ -82,11 +88,22 @@
     <Compile Include="ThankyouPopup.xaml.cs">
       <DependentUpon>ThankyouPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TimeLogging.xaml.cs">
+      <DependentUpon>TimeLogging.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdminPannel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ChooseTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TimeLogging.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProjectTime.xaml.cs">
@@ -182,10 +203,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\buggalo-error.png" />
+    <Resource Include="YACHT-Smiley-Black-800.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="YACHT-Smiley-Black-800.png" />
+    <Resource Include="buggalo-error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
