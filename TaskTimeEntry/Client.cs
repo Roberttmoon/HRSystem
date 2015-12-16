@@ -21,9 +21,9 @@ namespace TaskTimeEntry
         {
             this.name = name;
             this.email = email;
-            this._id = Guid.NewGuid();
-            this.projects = new List<Project>();
-            this.tasks = new List<Task>();
+            _id = Guid.NewGuid();
+            projects = new List<Project>();
+            tasks = new List<Task>();
         }
     }
 }

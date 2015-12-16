@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Security;
 
 namespace Interface
 {
@@ -31,13 +32,14 @@ namespace Interface
             // Add Message Box for "Are you sure?"
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
-            this.Close();
+            Close();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                //string password = new System.Net.NetworkCredential(string.Empty, securePassword).Password;
                 if (ModelView.CheckCredentials(email, password))
                 {
                     try
@@ -52,7 +54,8 @@ namespace Interface
                     {
                         Client client = ModelView.GetClient(email);
                         Application.Current.Resources["client"] = client;
-
+                        ThankyouPopup popup = new ThankyouPopup();
+                        popup.ShowDialog();
                     }
                 }
             }

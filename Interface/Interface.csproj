@@ -76,6 +76,9 @@
     <Compile Include="TaskTime.xaml.cs">
       <DependentUpon>TaskTime.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ThankyouPopup.xaml.cs">
+      <DependentUpon>ThankyouPopup.xaml</DependentUpon>
+    </Compile>
     <Page Include="ChooseTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TaskTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThankyouPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

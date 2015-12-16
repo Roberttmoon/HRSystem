@@ -10,21 +10,22 @@ namespace TaskTimeEntry
     public class Project
     {
         public string projectName { get; set; }
-        public string clientName { get; set; }
-        public string comment { get; set; }
-
-        protected Guid clientID;
+        public Guid _id { get; private set; }
+        public Guid clientID { get; set;}
         public int billableHoursSigned;
         protected int billableHoursActual;
         protected int hoursRemaining;
-        protected bool statusComplete;
+        protected bool statusComplete = false;
         protected List<BillableAsset> resources;
         public List<Task> tasks { get; private set; }
-        protected List<Dictionary<DateTime, string>> comments;
+        public List<string> comments;
 
         public Project()
         {
-
+            _id = Guid.NewGuid();
+            resources = new List<BillableAsset>();
+            tasks = new List<Task>();
+            comments = new List<string>();
         }
 
         public void ChangeStatus(bool status)
@@ -32,11 +33,9 @@ namespace TaskTimeEntry
             statusComplete = status;
         }
 
-        public void AddComment(DateTime date, string comment)
+        public void AddComment(string comment)
         {
-            Dictionary<DateTime, string> newComment = new Dictionary<DateTime, string>();
-            newComment.Add(date, comment);
-            comments.Add(newComment);
+            comments.Add(comment);
         }
 
         public void AddResource(BillableAsset asset)
