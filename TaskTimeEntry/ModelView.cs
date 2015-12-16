@@ -132,5 +132,6 @@ namespace TaskTimeEntry
             string json = Serializer<Client>.SerializeToJson(client);
             mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", client._id));
         }
+        
     }
 }
