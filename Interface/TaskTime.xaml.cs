@@ -33,7 +33,7 @@ namespace Interface
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             task.AddComment(CommentBox.Text);            
-            int hoursLogged = int.Parse(LogBox.Text);
+            float hoursLogged = float.Parse(LogBox.Text);
             task.AddHours(hoursLogged);
         }
 

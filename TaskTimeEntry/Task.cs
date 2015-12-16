@@ -11,7 +11,7 @@ namespace TaskTimeEntry
         public string taskName { get; set; }
         public Guid _id;
         public Guid projectID;
-        public int hoursLogged{ get; set;}           
+        public float hoursLogged{ get; set;}           
         public Guid clientID;
         public float timeRemaining;
         public List<string> comments;
@@ -24,9 +24,9 @@ namespace TaskTimeEntry
             this.comments = new List<string>();
         }
 
-        public int AddHours(int hoursLogged)
+        public float AddHours(float hoursLogged)
         {
-            int LogTime = 160;
+            float LogTime = timeRemaining;
             LogTime = (LogTime - hoursLogged);
             return LogTime;
         }
