@@ -74,7 +74,10 @@ namespace TaskTimeEntry
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "credentials");
             List<Credentials> allCredentials = mongo.GetAllDocuments<Credentials>();
-            if (allCredentials.Exists(item => item.email == email && item.password == password)) return true;
+            Credentials entered = allCredentials.Find(item => item.email == email);
+            Trace.WriteLine(entered.email);
+            Trace.WriteLine(password);
+            if (password == entered.password) return true;
             else return false;
         }
 
@@ -82,7 +85,9 @@ namespace TaskTimeEntry
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "assets");
             List<BillableAsset> assets = mongo.GetAllDocuments<BillableAsset>();
-            return assets.Find(item => item.email == email);
+            BillableAsset searched = assets.Find(item => item.email == email);
+            Trace.WriteLine(searched.email);
+            return searched;
         }
         public static Client GetClient(string email)
         {

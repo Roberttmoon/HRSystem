@@ -23,7 +23,7 @@ namespace Interface
         public ChooseTask()
         {
             InitializeComponent();
-            resource = (BillableAsset)Application.Current.FindResource("BillableAsset");
+            resource = (BillableAsset)Application.Current.FindResource("asset");
             Master.DataContext = resource;
             ChooseProjectBox.ItemsSource = resource.projects;                        
         }
@@ -32,6 +32,13 @@ namespace Interface
         {
             Project project = (Project)ChooseProjectBox.SelectedItem;
             ChooseTaskBox.ItemsSource = project.tasks;
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Close();
         }
     }
 }

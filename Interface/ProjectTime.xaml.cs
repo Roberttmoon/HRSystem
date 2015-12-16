@@ -45,5 +45,12 @@ namespace Interface
             PTprojectNameTextBox.Text = String.Empty;
             PTbillableHoursTextBox.Text = String.Empty;
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Close();
+        }
     }
 }
