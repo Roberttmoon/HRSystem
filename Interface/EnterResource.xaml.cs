@@ -51,11 +51,21 @@ namespace Interface
             Close();
         }
 
+
         private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Close();
+            
+        }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             NameInput.Text = String.Empty;
             PasswordInput.Clear();
             EmailInput.Text = String.Empty;
+
         }
     }
 }
