@@ -20,8 +20,8 @@ namespace Interface
 {
     public partial class EnterResource : Window
     {
-        public string name { get; private set; }
-        public string email { get; private set; }
+        public string name { get; set; }
+        public string email { get; set; }
 
         public EnterResource()
         {
@@ -35,6 +35,13 @@ namespace Interface
             BillableAsset asset = new BillableAsset(name, email);
             ModelView.AddCredentialsToDatabase(asset, password);
             ModelView.AddAssetToDatabase(asset);
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            NameInput.Text = String.Empty;
+            PasswordInput.Clear();
+            EmailInput.Text = String.Empty;
         }
     }
 }
