@@ -33,5 +33,12 @@ namespace Interface
             Project project = (Project)ChooseProjectBox.SelectedItem;
             ChooseTaskBox.ItemsSource = project.tasks;
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Close();
+        }
     }
 }
