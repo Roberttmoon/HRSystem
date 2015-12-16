@@ -40,7 +40,19 @@ namespace Interface
             }
         }
 
+        public static bool CheckCredentials(string email, string password)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "credentials");
+            List<Credentials> credentials = mongo.GetAllDocuments<Credentials>();
+            if (credentials.Exists(item => item.email == email && item.password == password)) return true;
+            else return false;
+        }
 
-
+        public static BillableAsset GetAsset(string email)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "assets");
+            List<BillableAsset> assets = mongo.GetAllDocuments<BillableAsset>();
+            return assets.Find(item => item.email == email);
+        }
     }
 }
