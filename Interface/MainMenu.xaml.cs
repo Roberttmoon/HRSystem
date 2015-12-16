@@ -26,7 +26,23 @@ namespace Interface
 
         private void EmployeeLogin_Click(object sender, RoutedEventArgs e)
         {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
 
+        private void ClientLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void HRLogin_Click(object sender, RoutedEventArgs e)
+        {
+            EnterResource enterResource = new EnterResource();
+            enterResource.Show();
+            this.Close();
         }
     }
 }

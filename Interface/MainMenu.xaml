@@ -8,9 +8,9 @@
         Title="MainMenu" Height="300" Width="300">
     <Grid>
         <Button x:Name="EmployeeLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="124,13,0,0" TabIndex="0" Click="EmployeeLogin_Click"/>
-        <Button x:Name="ClientLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="124,39,0,0" TabIndex="1"/>
+        <Button x:Name="ClientLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="124,39,0,0" TabIndex="1" Click="ClientLogin_Click"/>
         <Button x:Name="ManagerLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="124,65,0,0" TabIndex="2"/>
-        <Button x:Name="HRLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Margin="124,91,0,0" TabIndex="3"/>
+        <Button x:Name="HRLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Margin="124,91,0,0" TabIndex="3" Click="HRLogin_Click"/>
         <Label x:Name="EmployeeLable" Content="Employee login:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" RenderTransformOrigin="0.5,0.5"/>
         <Label x:Name="ClientLable" Content="Client Login:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0"/>
         <Label x:Name="ManagerLabel" Content="Manager Login:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0"/>
