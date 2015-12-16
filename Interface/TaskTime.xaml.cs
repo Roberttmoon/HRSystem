@@ -21,15 +21,19 @@ namespace Interface
     /// </summary>
     public partial class TaskTime : Window
     {
+        public List<Client> clients = ModelView.GetAllClients();
+
         public TaskTime()
         {
             InitializeComponent();
+            Master.DataContext = this;
         }
 
         public int Save_Click(object sender, RoutedEventArgs e)
         {
             int hoursLogged = int.Parse(LogBox.Text);
-            throw new NotImplementedException();
+            return hoursLogged;
+           // throw new NotImplementedException();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
