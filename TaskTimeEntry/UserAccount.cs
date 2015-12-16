@@ -20,6 +20,7 @@ namespace TaskTimeEntry
             projects.Add(project);
         }
 
+
         public int LogTime(Task task, float time, string comment)
         {
             throw new NotImplementedException();
