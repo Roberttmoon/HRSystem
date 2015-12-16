@@ -20,9 +20,10 @@ namespace TaskTimeEntry
                 Credentials credentials = new Credentials("asset", asset.email, asset._id, password);
                 string json = Serializer<Credentials>.SerializeToJson(credentials);
                 mongo.AddDocumentFromJsonString(json);
-            } else
+            }
+            else
             {
-                throw new Exception("Credentials Already Exist.");
+               // throw new Exception("Credentials Already Exist.");
             }
         }
 
@@ -38,7 +39,8 @@ namespace TaskTimeEntry
             }
             else
             {
-                throw new Exception("Credentials Already Exist.");
+                //return false;
+                //throw new Exception("Credentials Already Exist.");
             }
         }
 
@@ -50,9 +52,10 @@ namespace TaskTimeEntry
             {
                 string json = Serializer<BillableAsset>.SerializeToJson(asset);
                 mongo.AddDocumentFromJsonString(json);
-            } else
+            }
+            else
             {
-                throw new Exception("Asset already exists.");
+                //throw new Exception("Asset already exists.");
             }
         }
 
@@ -64,9 +67,10 @@ namespace TaskTimeEntry
             {
                 string json = Serializer<Client>.SerializeToJson(client);
                 mongo.AddDocumentFromJsonString(json);
-            } else
+            }
+            else
             {
-                throw new Exception("Client already exists");
+                //throw new Exception("Client already exists");
             }
         }
 
@@ -139,5 +143,6 @@ namespace TaskTimeEntry
             string json = Serializer<Client>.SerializeToJson(client);
             mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", client._id));
         }
+        
     }
 }
