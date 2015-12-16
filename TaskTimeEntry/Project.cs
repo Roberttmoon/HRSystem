@@ -11,14 +11,13 @@ namespace TaskTimeEntry
     {
         public string projectName { get; set; }
         public Guid _id { get; private set; }
-        public Guid clientID { get; set;}
-        public int billableHoursSigned;
-        protected int billableHoursActual;
-        public float timeRemaining { get; set; }
-        protected bool statusComplete = false;
-        protected List<BillableAsset> resources;
+        public Guid clientID { get; set; }
+        public int billableHoursSigned { get; set; }
+        public int billableHoursActual { get; set; }
+        public bool statusComplete { get; set; }
+        public List<BillableAsset> resources { get; private set; }
         public List<Task> tasks { get; private set; }
-        public List<string> comments;
+        public List<string> comments { get; private set; }
 
         public Project()
         {
@@ -26,6 +25,8 @@ namespace TaskTimeEntry
             resources = new List<BillableAsset>();
             tasks = new List<Task>();
             comments = new List<string>();
+            billableHoursActual = 0;
+            statusComplete = false;
         }
 
         public void AddTask(Task task)
@@ -40,7 +41,7 @@ namespace TaskTimeEntry
 
         public void AddResource(BillableAsset asset)
         {
-            throw new NotImplementedException();
+            resources.Add(asset);
         }
 
         public void AddBillableHours(int hours)
