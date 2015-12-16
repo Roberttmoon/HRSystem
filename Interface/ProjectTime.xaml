@@ -5,23 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="Enter Project" Height="333.4" Width="394.874">
-
-
-
+        Title="Enter Project" Height="495.276" Width="394.874">
     <Grid x:Name="Master">
-        <Label x:Name="Client_Name" Content="Client:" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.42,2.555"/>
-        <ComboBox x:Name="ChooseClient" ItemsSource="{Binding Path=clients}" DisplayMemberPath="name" SelectedValuePath="name" SelectedValue="{Binding Path=Client}" HorizontalAlignment="Left" Margin="102,65,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="PTprojectNameAdd" Content="Project Name:&#xA;" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Height="29"/>
-        <Label x:Name="PTcommentAdd" Content="Comment:" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PTprojectNameTextBox" Height="23" Margin="102,100,50,0" Text="{Binding projectName}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="PTcommentTextbox" HorizontalAlignment="Left" Height="68" Margin="102,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
-        <Label x:Name="PTbillableHoursAdd" Content="Billable Hours:" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PTbillableHoursTextBox" HorizontalAlignment="Left" Height="23" Margin="102,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
-        <Button x:Name="PTaddButton" Content="Continue" HorizontalAlignment="Left" Margin="102,258,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click" RenderTransformOrigin="-0.667,0.727"/>
-        <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="182,258,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="ClientLabel" Content="Choose a Client:" HorizontalAlignment="Left" Margin="5,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.42,2.555"/>
+        <ListBox x:Name="ChooseClient" HorizontalAlignment="Left" Height="179" Margin="106,70,0,0" VerticalAlignment="Top" Width="266">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label x:Name="PTprojectNameAdd" Content="Project Name:&#xA;" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Height="29"/>
+        <Label x:Name="PTcommentAdd" Content="Comment:" HorizontalAlignment="Left" Margin="10,333,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PTprojectNameTextBox" Height="23" Margin="106,265,16.8,0" Text="{Binding projectName}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="PTcommentTextbox" HorizontalAlignment="Left" Height="68" Margin="106,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+        <Label x:Name="PTbillableHoursAdd" Content="Billable Hours:" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PTbillableHoursTextBox" HorizontalAlignment="Left" Height="23" Margin="106,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+        <Button x:Name="PTaddButton" Content="Continue" HorizontalAlignment="Left" Margin="217,424,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click"/>
+        <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="297,424,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="To create a new project, start by choosing a client that you'd like to add the project for. Then fill out the details of your project to continue." VerticalAlignment="Top" Height="55" Width="362"/>
         <Button x:Name="button" Content="Cancel" HorizontalAlignment="Left" Margin="262,258,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
-
 </Window>

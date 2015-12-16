@@ -12,8 +12,13 @@ namespace TaskTimeEntry
         public string name { get; protected set; }
         public string email { get; protected set; }
         public Guid _id { get; protected set; }
-        public List<Project> projects { get; protected set; }        
+        public List<Guid> projects { get; protected set; }        
         public List<Task> tasks { get; protected set; }
+
+        public void AddProject(Project project)
+        {
+            projects.Add(project._id);
+        }
 
         public int LogTime(Task task, float time, string comment)
         {
@@ -27,12 +32,7 @@ namespace TaskTimeEntry
 
         public void AddComment(Task task, string comment)
         {
-            task.AddComment(DateTime.Now, comment);
-        }
-
-        public void AddProject(Project project, ref List<Project> projects)
-        {
-            projects.Add(project);
+            task.AddComment(comment);
         }
     }
 }
