@@ -41,6 +41,7 @@ namespace Interface
             Client client = (Client)ChooseClient.SelectedItem;
             project.clientID = client._id;
             client.AddProject(project);
+            client.name = "NAME CHANGED";
             ModelView.ReplaceClient(client);
             MessageBox.Show("Success. Project added to client.");
         }

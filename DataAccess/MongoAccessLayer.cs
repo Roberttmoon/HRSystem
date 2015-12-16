@@ -63,7 +63,7 @@ namespace DataAccess
         public string SerializeBsonToString(BsonDocument document)
         {
             return BsonExtensionMethods.ToJson(document);
-        } 
+        }
 
 
         public async void AddMultipleBson(List<BsonDocument> documents)

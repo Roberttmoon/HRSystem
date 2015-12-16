@@ -9,7 +9,7 @@ namespace TaskTimeEntry
 {
     public abstract class UserAccount : ITaskInteract
     {
-        public string name { get; protected set; }
+        public string name { get; set; }
         public string email { get; protected set; }
         public Guid _id { get; protected set; }
         public List<Guid> projects { get; protected set; }        
