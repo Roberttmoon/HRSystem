@@ -14,7 +14,7 @@ namespace TaskTimeEntry
         public Guid clientID { get; set;}
         public int billableHoursSigned;
         protected int billableHoursActual;
-        protected int hoursRemaining;
+        public float timeRemaining { get; set; }
         protected bool statusComplete = false;
         protected List<BillableAsset> resources;
         public List<Task> tasks { get; private set; }
@@ -28,9 +28,9 @@ namespace TaskTimeEntry
             comments = new List<string>();
         }
 
-        public void ChangeStatus(bool status)
+        public void AddTask(Task task)
         {
-            statusComplete = status;
+            tasks.Add(task);
         }
 
         public void AddComment(string comment)
@@ -48,6 +48,9 @@ namespace TaskTimeEntry
             throw new NotImplementedException();
         }
 
-
+        public void ChangeStatus(bool status)
+        {
+            statusComplete = status;
+        }
     }
 }

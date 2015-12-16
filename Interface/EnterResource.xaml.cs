@@ -35,21 +35,33 @@ namespace Interface
             if ((bool)assetRadio.IsChecked)
             {
                 BillableAsset asset = new BillableAsset(name, email);
+                asset.privilege = false;
                 ModelView.AddCredentialsToDatabase(asset, password);
                 ModelView.AddAssetToDatabase(asset);
+                EnterResource nextWindow = new EnterResource();
+                nextWindow.Show();
+                Close();
             } else if ((bool)clientRadio.IsChecked)
             {
                 Client client = new Client(name, email, 0f);
                 ModelView.AddCredentialsToDatabase(client, password);
                 ModelView.AddClientToDatabase(client);
+                EnterResource nextWindow = new EnterResource();
+                nextWindow.Show();
+                Close();
+            }else if ((bool)adminRadio.IsChecked) {
+                BillableAsset asset = new BillableAsset(name, email);
+                asset.privilege = true;
+                ModelView.AddCredentialsToDatabase(asset, password);
+                ModelView.AddAssetToDatabase(asset);
+                EnterResource nextWindow = new EnterResource();
+                nextWindow.Show();
+                Close();
             } else
             {
-                // Radio Not Checked
+                MessageBox.Show("Please select a privilege level");
             }
-            EnterResource nextWindow = new EnterResource();
-            nextWindow.Show();
-            Close();
-        }
+       }
 
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
