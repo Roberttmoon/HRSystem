@@ -14,7 +14,6 @@ using System.Windows.Shapes;
 using TaskTimeEntry;
 using DataAccess;
 using System.Text.RegularExpressions;
-
 namespace Interface
 {
     /// <summary>
@@ -35,15 +34,15 @@ namespace Interface
         private void PTaddButton_Click(object sender, RoutedEventArgs e)
         {
             Project newProj = new Project();
+            Serializer<Project>.SerializeToJson(newProj);
+
             MongoAccessLayer mongo = new MongoAccessLayer("Main", "Credential");
             newProj.clientName = PTclientNameTextBox.Text;
             newProj.projectName = PTprojectNameTextBox.Text;
             int numOfBillHours = int.Parse(PTbillableHoursTextBox.Text);
             newProj.billableHoursSigned = numOfBillHours;
-            comment = PTcommentTextbox.Text;
-            ProjectTime input = Serializer<Project>.SerializeToJson(clientName, projectName, billableHours, comment);
-            string json = Serializer<string, string>>.SerializeToJson(input);
-            mongo.AddDocument(json);
+            comment = PTcommentTextbox.Text;           
+            //mongo.AddDocument(json);
             ProjectTime nextWindow = new ProjectTime();
             nextWindow.Show();
             this.Close();
