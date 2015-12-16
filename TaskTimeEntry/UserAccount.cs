@@ -20,6 +20,7 @@ namespace TaskTimeEntry
             projects.Add(project);
         }
 
+
         public void ReplaceProject(Guid projectID, Project newProject)
         {
             Project projectToReplace = projects.Find(item => item._id == projectID);
