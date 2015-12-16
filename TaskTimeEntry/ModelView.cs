@@ -17,10 +17,26 @@ namespace Interface
             List<Credentials> allCredentials = mongo.GetAllDocuments<Credentials>();
             if (!allCredentials.Exists(item => item.email == asset.email))
             {
-                Credentials credentials = new Credentials(asset.email, asset._id, password);
+                Credentials credentials = new Credentials("asset", asset.email, asset._id, password);
                 string json = Serializer<Credentials>.SerializeToJson(credentials);
                 mongo.AddDocumentFromJsonString(json);
             } else
+            {
+                throw new Exception("Credentials Already Exist.");
+            }
+        }
+
+        public static void AddCredentialsToDatabase(Client client, string password)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "credentials");
+            List<Credentials> allCredentials = mongo.GetAllDocuments<Credentials>();
+            if (!allCredentials.Exists(item => item.email == client.email))
+            {
+                Credentials credentials = new Credentials("client", client.email, client._id, password);
+                string json = Serializer<Credentials>.SerializeToJson(credentials);
+                mongo.AddDocumentFromJsonString(json);
+            }
+            else
             {
                 throw new Exception("Credentials Already Exist.");
             }
@@ -40,11 +56,25 @@ namespace Interface
             }
         }
 
+        public static void AddClientToDatabase(Client client)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
+            List<Client> clients = mongo.GetAllDocuments<Client>();
+            if (!clients.Exists(item => item.email == client.email))
+            {
+                string json = Serializer<Client>.SerializeToJson(client);
+                mongo.AddDocumentFromJsonString(json);
+            } else
+            {
+                throw new Exception("Client already exists");
+            }
+        }
+
         public static bool CheckCredentials(string email, string password)
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "credentials");
-            List<Credentials> credentials = mongo.GetAllDocuments<Credentials>();
-            if (credentials.Exists(item => item.email == email && item.password == password)) return true;
+            List<Credentials> allCredentials = mongo.GetAllDocuments<Credentials>();
+            if (allCredentials.Exists(item => item.email == email && item.password == password)) return true;
             else return false;
         }
 

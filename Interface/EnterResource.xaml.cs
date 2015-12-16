@@ -32,9 +32,23 @@ namespace Interface
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             string password = PasswordInput.Password;
-            BillableAsset asset = new BillableAsset(name, email);
-            ModelView.AddCredentialsToDatabase(asset, password);
-            ModelView.AddAssetToDatabase(asset);
+            if ((bool)assetRadio.IsChecked)
+            {
+                BillableAsset asset = new BillableAsset(name, email);
+                ModelView.AddCredentialsToDatabase(asset, password);
+                ModelView.AddAssetToDatabase(asset);
+            } else if ((bool)clientRadio.IsChecked)
+            {
+                Client client = new Client(name, email, 0f);
+                ModelView.AddCredentialsToDatabase(client, password);
+                ModelView.AddClientToDatabase(client);
+            } else
+            {
+                // Radio Not Checked
+            }
+            EnterResource nextWindow = new EnterResource();
+            nextWindow.Show();
+            Close();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
