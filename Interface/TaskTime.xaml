@@ -6,14 +6,15 @@
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
         Title="TaskTime" Height="300" Width="300">
+    
     <Grid>
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="36,201,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click"/>
         <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="168,201,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="Hours" HorizontalAlignment="Left" Height="23" Margin="91,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" RenderTransformOrigin="-0.181,-0.06" TextChanged="Hours_TextChanged"/>
-        <TextBox x:Name="Comment" HorizontalAlignment="Left" Height="23" Margin="91,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
+        <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Height="23" Margin="91,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
         <Label x:Name="label" Content="Task Name" HorizontalAlignment="Left" Margin="11,31,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Log Hours" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Comments" HorizontalAlignment="Left" Margin="11,140,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Task" HorizontalAlignment="Left" Height="23" Margin="91,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding taskName}"/>
+        <TextBox x:Name="TaskBox" HorizontalAlignment="Left" Height="23" Margin="91,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding taskName}"/>
+        <TextBox x:Name="LogBox" HorizontalAlignment="Left" Height="23" Margin="91,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
     </Grid>
 </Window>

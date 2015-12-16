@@ -26,21 +26,44 @@ namespace DataAccess
             _collection = _database.GetCollection<BsonDocument>(collection);
         }
 
-        public BsonDocument DeserializeFromString(string json)
+        public List<T> GetAllDocuments<T>()
+        {
+            List<T> output = new List<T>();
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Empty;
+            List<BsonDocument> result = _collection.Find(filter).ToList();
+            foreach (BsonDocument doc in result)
+            {
+                output.Add(DeserializeFromBson<T>(doc));
+            }
+            return output;
+        }
+
+        public T DeserializeFromBson<T>(BsonDocument document)
+        {
+            return MongoDB.Bson.Serialization.BsonSerializer.Deserialize<T>(document);
+        }
+
+        public void AddDocumentFromJsonString(string json)
+        {
+            BsonDocument document = JsonStringToBson(json);
+            _collection.InsertOne(document);
+        }
+
+
+
+
+
+
+        public BsonDocument JsonStringToBson(string json)
         {
             return MongoDB.Bson.Serialization.BsonSerializer.Deserialize<BsonDocument>(json);
         }
 
-        public string SerializeToString(BsonDocument document)
+        public string SerializeBsonToString(BsonDocument document)
         {
             return BsonExtensionMethods.ToJson(document);
         } 
 
-        public void AddDocument(string singleDocumentJson)
-        {
-            BsonDocument document = DeserializeFromString(singleDocumentJson);
-            _collection.InsertOne(document);
-        }
 
         public async void AddMultipleBson(List<BsonDocument> documents)
         {
@@ -54,19 +77,7 @@ namespace DataAccess
             List<BsonDocument> result = _collection.Find(filter).ToList();
             foreach(BsonDocument doc in result)
             {
-                jsonDocs.Add(SerializeToString(doc));
-            }
-            return jsonDocs;
-        }
-
-        public List<string> GetAllDocuments()
-        {
-            List<string> jsonDocs = new List<string>();
-            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Empty;
-            List<BsonDocument> result = _collection.Find(filter).ToList();
-            foreach (BsonDocument doc in result)
-            {
-                jsonDocs.Add(SerializeToString(doc));
+                jsonDocs.Add(SerializeBsonToString(doc));
             }
             return jsonDocs;
         }
@@ -80,7 +91,7 @@ namespace DataAccess
 
         public async void ReplaceDocument(KeyValuePair<string, string> replaceFilter, string json)
         {
-            BsonDocument document = DeserializeFromString(json);
+            BsonDocument document = JsonStringToBson(json);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(replaceFilter.Key, replaceFilter.Value);
             ReplaceOneResult result = await _collection.ReplaceOneAsync(filter, document);
         }

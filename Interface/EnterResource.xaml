@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="Add New Resource" Height="313" Width="369.2">
+        Title="Add New Resource" Height="286.6" Width="369.2">
     <Grid>
         <TextBlock x:Name="Instructions" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="To add a new resource to the database, please enter the resources name, email address and assigned password in the field below." VerticalAlignment="Top" Height="54" Width="343"/>
-        <Label x:Name="NameLabel" Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66,0,0"/>
-        <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,112,0,0"/>
-        <Label x:Name="PasswordLabel" Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,161,0,0" RenderTransformOrigin="0.5,4.615"/>
-        <TextBox x:Name="NameInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="93,69,0,0"/>
-        <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="93,115,0,0"/>
-        <Button x:Name="AddButton" Content="Continue" HorizontalAlignment="Left" Margin="188,250,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
-        <Button x:Name="CancelButton" Content="Clear" HorizontalAlignment="Left" Margin="268,250,0,0" VerticalAlignment="Top" Width="75"/>
-        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="93,161,0,0" VerticalAlignment="Top" Width="250" Height="23"/>
-        <Label x:Name="ResourceTypeLabel" Content="Type:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,199,0,0" RenderTransformOrigin="0.5,4.615"/>
-        <RadioButton x:Name="assetRadio" GroupName="ResourceType" Content="Billable Asset" HorizontalAlignment="Left" Margin="93,205,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="clientRadio" GroupName="ResourceType" Content="Client" HorizontalAlignment="Left" Margin="188,205,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="NameLabel" Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0"/>
+        <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,99,0,0"/>
+        <Label x:Name="PasswordLabel" Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,0,0" RenderTransformOrigin="0.5,4.615"/>
+        <TextBox x:Name="NameInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="93,71,0,0"/>
+        <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="93,102,0,0"/>
+        <Button x:Name="AddButton" Content="Continue" HorizontalAlignment="Left" Margin="188,214,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
+        <Button x:Name="CancelButton" Content="Clear" HorizontalAlignment="Left" Margin="268,214,0,0" VerticalAlignment="Top" Width="75"/>
+        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="93,132,0,0" VerticalAlignment="Top" Width="250" Height="23"/>
+        <Label x:Name="ResourceTypeLabel" Content="Type:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,161,0,0" RenderTransformOrigin="0.5,4.615"/>
+        <RadioButton x:Name="assetRadio" GroupName="ResourceType" Content="Billable Asset" HorizontalAlignment="Left" Margin="93,167,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="clientRadio" GroupName="ResourceType" Content="Client" HorizontalAlignment="Left" Margin="187,167,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

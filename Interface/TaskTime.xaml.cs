@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TaskTimeEntry;
+using System.Text.RegularExpressions;
 
 namespace Interface
 {
@@ -25,5 +26,12 @@ namespace Interface
             InitializeComponent();
         }
 
+        public int Save_Click(object sender, RoutedEventArgs e)
+        {
+            int hoursLogged = int.Parse(LogBox.Text);
+            return hoursLogged;
+
+
+        }
     }
 }
