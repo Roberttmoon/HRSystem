@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminPannel.xaml.cs">
+      <DependentUpon>AdminPannel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginPopUp.xaml.cs">
       <DependentUpon>LoginPopUp.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
     <Compile Include="ThankyouPopup.xaml.cs">
       <DependentUpon>ThankyouPopup.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdminPannel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChooseTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
