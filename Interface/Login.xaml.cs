@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TaskTimeEntry;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -37,18 +36,30 @@ namespace Interface
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            password = PasswordInput.Password;
-            if (ModelView.CheckCredentials(email, password))
+            try
             {
-                BillableAsset asset = ModelView.GetAsset(email);
-                Application.Current.Resources["asset"] = asset;
-                ChooseTask nextWindow = new ChooseTask();
-                nextWindow.Show();
-                Close();
-            } else
+                if (ModelView.CheckCredentials(email, password))
+                {
+                    try
+                    {
+                        BillableAsset asset = ModelView.GetAsset(email);
+                        Application.Current.Resources["asset"] = asset;
+                        ChooseTask nextWindow = new ChooseTask();
+                        nextWindow.Show();
+                        this.Close();
+                    }
+                    catch
+                    {
+                        Client client = ModelView.GetClient(email);
+                        Application.Current.Resources["client"] = client;
+
+                    }
+                }
+            }
+            catch
             {
-                Trace.WriteLine("Check Credentials Failed");
-                // Show Incorrect Login Info Window
+                LoginPopUp popup = new LoginPopUp();
+                popup.ShowDialog();
             }
         }
     }

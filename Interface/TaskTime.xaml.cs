@@ -31,5 +31,12 @@ namespace Interface
             int hoursLogged = int.Parse(LogBox.Text);
             throw new NotImplementedException();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Close();
+        }
     }
 }

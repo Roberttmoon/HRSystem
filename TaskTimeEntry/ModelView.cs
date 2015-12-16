@@ -89,6 +89,12 @@ namespace TaskTimeEntry
             Trace.WriteLine(searched.email);
             return searched;
         }
+        public static Client GetClient(string email)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
+            List<Client> client = mongo.GetAllDocuments<Client>();
+            return client.Find(item => item.email == email);
+        }
 
         public static List<Client> GetAllClients()
         {
