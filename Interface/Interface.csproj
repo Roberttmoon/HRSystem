@@ -182,10 +182,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\buggalo-error.png" />
+    <Resource Include="YACHT-Smiley-Black-800.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\YACHT-Smiley-Black-800.png" />
+    <Resource Include="buggalo-error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
