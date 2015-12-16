@@ -22,6 +22,7 @@ namespace Interface
     {
         Company company;
         List<Project> projects;
+        List<BillableAsset> resources;
 
         public EditProject()
         {
@@ -45,6 +46,13 @@ namespace Interface
             Client client = ModelView.GetClient(project.clientID);
             AddTask addTask = new AddTask(client, project);
             addTask.Show();
+            Close();
+        }
+
+        private void AddResource_Click(object sender, RoutedEventArgs e)
+        {
+            AddResourceToProject addResource = new AddResourceToProject(company.assets, (Project)ChooseProject.SelectedItem);
+            addResource.Show();
             Close();
         }
     }

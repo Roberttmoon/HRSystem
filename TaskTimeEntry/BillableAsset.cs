@@ -26,10 +26,5 @@ namespace TaskTimeEntry
         {
             taskList.Add(task);
         }
-
-        public void addProject(Project project, List<Task> task)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
