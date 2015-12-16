@@ -76,7 +76,7 @@ namespace TaskTimeEntry
             List<Credentials> allCredentials = mongo.GetAllDocuments<Credentials>();
             Credentials entered = allCredentials.Find(item => item.email == email);
             Trace.WriteLine(entered.email);
-            Trace.WriteLine(password);
+            Trace.WriteLine(entered.password);
             if (password == entered.password) return true;
             else return false;
         }

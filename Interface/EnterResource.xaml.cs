@@ -65,6 +65,6 @@ namespace Interface
             NameInput.Text = String.Empty;
             PasswordInput.Clear();
             EmailInput.Text = String.Empty;
-                }
+         }
     }
 }
