@@ -15,7 +15,7 @@
         <TextBox x:Name="WorkHoursInput" HorizontalAlignment="Left" Height="23" Margin="94,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
         <Label x:Name="CommentsLabel" Content="Comments:" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.448,0.18"/>
         <TextBox x:Name="CommentsInput" HorizontalAlignment="Left" Height="66" Margin="94,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
-        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="209,233,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="209,233,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click"/>
         <Button x:Name="AddTaskButton" Content="Add Task" HorizontalAlignment="Left" Margin="129,233,0,0" VerticalAlignment="Top" Width="75" Click="AddTaskButton_Click"/>
     </Grid>
 </Window>

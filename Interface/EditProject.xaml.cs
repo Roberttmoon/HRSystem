@@ -22,6 +22,7 @@ namespace Interface
     {
         Company company;
         List<Project> projects;
+
         public EditProject()
         {
             InitializeComponent();
@@ -31,5 +32,20 @@ namespace Interface
             ChooseProject.ItemsSource = projects;
         }
 
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu menu = new MainMenu();
+            menu.Show();
+            Close();
+        }
+
+        private void AddTask_Click(object sender, RoutedEventArgs e)
+        {
+            Project project = (Project)ChooseProject.SelectedItem;
+            Client client = ModelView.GetClient(project.clientID);
+            AddTask addTask = new AddTask(client, project);
+            addTask.Show();
+            Close();
+        }
     }
 }
