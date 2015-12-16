@@ -11,7 +11,7 @@ namespace TaskTimeEntry
 {
     [Serializable]
     public class BillableAsset : UserAccount
-    {
+    { 
         public float hourlyRate { get; private set; }
 
         public BillableAsset(string name, string email)
