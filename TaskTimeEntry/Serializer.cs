@@ -11,7 +11,7 @@ namespace TaskTimeEntry
     {
         public static string SerializeToJson(T Data)
         {
-            return JsonConvert.SerializeObject(Data);
+            return JsonConvert.SerializeObject(Data, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Serialize });
         }
 
         public static T DeserializeFromJson(string json)

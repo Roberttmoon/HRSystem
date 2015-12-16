@@ -32,7 +32,7 @@ namespace Interface
             // Add Message Box for "Are you sure?"
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
-            this.Close();
+            Close();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -44,7 +44,7 @@ namespace Interface
                 Application.Current.Resources["asset"] = asset;
                 ChooseTask nextWindow = new ChooseTask();
                 nextWindow.Show();
-                this.Close();
+                Close();
             } else
             {
                 Trace.WriteLine("Check Credentials Failed");

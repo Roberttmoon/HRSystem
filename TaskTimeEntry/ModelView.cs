@@ -101,5 +101,19 @@ namespace TaskTimeEntry
             MongoAccessLayer mongo = new MongoAccessLayer("main", "assets");
             return mongo.GetAllDocuments<BillableAsset>();
         }
+
+        public static void ReplaceAsset(BillableAsset asset)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "assets");
+            string json = Serializer<BillableAsset>.SerializeToJson(asset);
+            mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", asset._id));
+        }
+
+        public static void ReplaceClient(Client client)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
+            string json = Serializer<Client>.SerializeToJson(client);
+            mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", client._id));
+        }
     }
 }

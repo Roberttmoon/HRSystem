@@ -30,13 +30,19 @@ namespace Interface
         {
             InitializeComponent();
             DataContext = project;
-            ChooseClient.DataContext = clients;
+            ChooseClient.DataContext = this;
+            ChooseClient.ItemsSource = clients;
         }
 
         private void PTaddButton_Click(object sender, RoutedEventArgs e)
         {
             project.billableHoursSigned = Int32.Parse(PTbillableHoursTextBox.Text);
-            project.AddComment(DateTime.Now, PTcommentTextbox.Text);
+            project.AddComment(PTcommentTextbox.Text);
+            Client client = (Client)ChooseClient.SelectedItem;
+            project.clientID = client._id;
+            client.AddProject(project);
+            ModelView.ReplaceClient(client);
+            MessageBox.Show("Success. Project added to client.");
         }
 
         private void PTclearButton_Click(object sender, RoutedEventArgs e)

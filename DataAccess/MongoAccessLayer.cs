@@ -48,6 +48,13 @@ namespace DataAccess
             _collection.InsertOne(document);
         }
 
+        public async void ReplaceDocument(string newDocJson, KeyValuePair<string, Guid> id)
+        {
+            BsonDocument newDocument = JsonStringToBson(newDocJson);
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", id.Value);
+            await _collection.ReplaceOneAsync(filter, newDocument);
+        }
+
         public BsonDocument JsonStringToBson(string json)
         {
             return MongoDB.Bson.Serialization.BsonSerializer.Deserialize<BsonDocument>(json);

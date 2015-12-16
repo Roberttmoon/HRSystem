@@ -19,7 +19,7 @@ namespace TaskTimeEntry
             this.name = name;
             this.email = email;
             _id = Guid.NewGuid();
-            this.projects = new List<Project>();
+            this.projects = new List<Guid>();
             this.tasks = new List<Task>();
         }
 
