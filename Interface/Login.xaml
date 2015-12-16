@@ -11,7 +11,7 @@
         <TextBlock x:Name="EmailLabel" HorizontalAlignment="Left" Margin="34,74,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
         <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="23" Margin="95,74,0,0" TextWrapping="Wrap" Text="{Binding email}" VerticalAlignment="Top" Width="170" TabIndex="0"/>
         <TextBlock x:Name="PasswordLabel" HorizontalAlignment="Left" Margin="34,113,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" RenderTransformOrigin="0.523,2.381" Width="56"/>
-        <TextBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="95,113,0,0" VerticalAlignment="Top" Text="{Binding password}" Width="170" Height="23" TabIndex="1"/>
+        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="95,113,0,0" VerticalAlignment="Top"  Width="170" Height="23" TabIndex="1"/>
         <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="110,157,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click" TabIndex="2"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="190,157,0,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click" TabIndex="3"/>
     </Grid>

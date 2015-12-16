@@ -19,7 +19,7 @@ namespace Interface
     public partial class Login : Window
     {
         public string email { get; set; }
-        public string password { get; set; }
+        //public string password;
 
         public Login()
         {
@@ -29,17 +29,14 @@ namespace Interface
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            // Add Message Box for "Are you sure?"
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
-            Close();
+                Close();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                //string password = new System.Net.NetworkCredential(string.Empty, securePassword).Password;
+                string password = PasswordInput.Password;
                 if (ModelView.CheckCredentials(email, password))
                 {
                     try
@@ -69,7 +66,7 @@ namespace Interface
                 LoginPopUp popup = new LoginPopUp();
                 popup.ShowDialog();
                 EmailInput.Text = String.Empty;
-                PasswordInput.Text = String.Empty;
+                PasswordInput.Clear();
                 
             }
         }
