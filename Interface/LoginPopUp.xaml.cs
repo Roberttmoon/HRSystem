@@ -23,5 +23,11 @@ namespace Interface
         {
             InitializeComponent();
         }
+
+        private void ok_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Close();
+        }
     }
 }
