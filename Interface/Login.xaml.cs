@@ -29,6 +29,8 @@ namespace Interface
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             // Add Message Box for "Are you sure?"
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
             this.Close();
         }
 
