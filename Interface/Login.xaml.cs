@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TaskTimeEntry;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,6 +37,7 @@ namespace Interface
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            password = PasswordInput.Password;
             if (ModelView.CheckCredentials(email, password))
             {
                 BillableAsset asset = ModelView.GetAsset(email);
@@ -45,6 +47,7 @@ namespace Interface
                 this.Close();
             } else
             {
+                Trace.WriteLine("Check Credentials Failed");
                 // Show Incorrect Login Info Window
             }
         }

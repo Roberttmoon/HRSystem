@@ -23,7 +23,7 @@ namespace Interface
         public ChooseTask()
         {
             InitializeComponent();
-            resource = (BillableAsset)Application.Current.FindResource("BillableAsset");
+            resource = (BillableAsset)Application.Current.FindResource("asset");
             Master.DataContext = resource;
             ChooseProjectBox.ItemsSource = resource.projects;                        
         }

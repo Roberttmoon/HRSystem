@@ -44,5 +44,12 @@ namespace Interface
             enterResource.Show();
             this.Close();
         }
+
+        private void ManagerLogin_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectTime projectTime = new ProjectTime();
+            projectTime.Show();
+            this.Close();
+        }
     }
 }
