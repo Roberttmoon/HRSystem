@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="Enter Project" Height="376.6" Width="476.474">
+        Title="Enter Project" Height="333.4" Width="394.874">
 
     <Grid x:Name="Master">
-        <Label x:Name="Client_Name" Content="Client:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.42,2.555"/>
-        <ComboBox x:Name="ChooseClient" ItemsSource="{Binding Path=clients}" DisplayMemberPath="name" SelectedValuePath="name" SelectedValue="{Binding Path=Client}" HorizontalAlignment="Left" Margin="101,70,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="PTprojectNameAdd" Content="Project Name:&#xA;" HorizontalAlignment="Left" Margin="8,106,0,0" VerticalAlignment="Top" Height="29"/>
-        <Label x:Name="PTcommentAdd" Content="Comment" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PTprojectNameTextBox" Height="23" Margin="101,106,139.4,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="PTcommentTextbox" HorizontalAlignment="Left" Height="23" Margin="101,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
-        <Label x:Name="PTbillableHoursAdd" Content="Billable Hours" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PTbillableHoursTextBox" HorizontalAlignment="Left" Height="23" Margin="101,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
-        <Button x:Name="PTaddButton" Content="Continue" HorizontalAlignment="Left" Margin="305,318,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click"/>
-        <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="385,318,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter the details of your new project below to get started." VerticalAlignment="Top" Height="28" Width="450"/>
+        <Label x:Name="Client_Name" Content="Client:" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.42,2.555"/>
+        <ComboBox x:Name="ChooseClient" ItemsSource="{Binding Path=clients}" DisplayMemberPath="name" SelectedValuePath="name" SelectedValue="{Binding Path=Client}" HorizontalAlignment="Left" Margin="102,65,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="PTprojectNameAdd" Content="Project Name:&#xA;" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Height="29"/>
+        <Label x:Name="PTcommentAdd" Content="Comment:" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PTprojectNameTextBox" Height="23" Margin="102,100,57.8,0" Text="{Binding projectName}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="PTcommentTextbox" HorizontalAlignment="Left" Height="68" Margin="102,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <Label x:Name="PTbillableHoursAdd" Content="Billable Hours:" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PTbillableHoursTextBox" HorizontalAlignment="Left" Height="23" Margin="102,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <Button x:Name="PTaddButton" Content="Continue" HorizontalAlignment="Left" Margin="176,258,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click"/>
+        <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="256,258,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="To create a new project, start by choosing a client that you'd like to add the project for. Then fill out the details of your project to continue." VerticalAlignment="Top" Height="55" Width="362"/>
     </Grid>
 </Window>
