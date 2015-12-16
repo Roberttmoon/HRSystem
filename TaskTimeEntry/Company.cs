@@ -17,6 +17,19 @@ namespace TaskTimeEntry
             clients = ModelView.GetAllClients();
         }
 
+        public List<Project> GetAllProjects()
+        {
+            List<Project> allProjects = new List<Project>();
+            foreach(Client client in clients)
+            {
+                foreach(Project project in client.projects)
+                {
+                    allProjects.Add(project);
+                }
+            }
+            return allProjects;
+        } 
+
         public void AddProject(Project project)
         {
 
