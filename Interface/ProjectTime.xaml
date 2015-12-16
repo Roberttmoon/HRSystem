@@ -21,8 +21,9 @@
         <TextBox x:Name="PTcommentTextbox" HorizontalAlignment="Left" Height="68" Margin="106,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
         <Label x:Name="PTbillableHoursAdd" Content="Billable Hours:" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="PTbillableHoursTextBox" HorizontalAlignment="Left" Height="23" Margin="106,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
-        <Button x:Name="PTaddButton" Content="Continue" HorizontalAlignment="Left" Margin="217,424,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click"/>
-        <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="297,424,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="PTaddButton" Content="Continue" HorizontalAlignment="Left" Margin="295,424,0,0" VerticalAlignment="Top" Width="75" Click="PTaddButton_Click"/>
+        <Button x:Name="PTclearButton" Content="Clear" HorizontalAlignment="Left" Margin="10,424,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="To create a new project, start by choosing a client that you'd like to add the project for. Then fill out the details of your project to continue." VerticalAlignment="Top" Height="55" Width="362"/>
+        <Button x:Name="button" Content="Cancel" HorizontalAlignment="Left" Margin="205,424,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
 </Window>

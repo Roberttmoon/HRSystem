@@ -63,6 +63,9 @@ namespace Interface
             {
                 LoginPopUp popup = new LoginPopUp();
                 popup.ShowDialog();
+                EmailInput.Text = String.Empty;
+                PasswordInput.Text = String.Empty;
+                
             }
         }
     }

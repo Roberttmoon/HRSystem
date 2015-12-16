@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="ThankyouPopup" Height="300" Width="300">
-    <Grid Margin="0,0,0,157">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Thanks for being a client!" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        Title="Thank You" Height="303.478" Width="352.586">
+    <Grid Margin="0,0,-8,2">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="109,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="5,40,0,0" TextWrapping="Wrap" Text="Thank You For Being Our Client" VerticalAlignment="Top" Width="343" FontSize="24"/>
+        <Image x:Name="YACHT_Smiley_Black_800_png" Margin="106,84,107,63" Source="YACHT-Smiley-Black-800.png" Stretch="Fill"/>
+        <Button x:Name="ThankYouButton" Content="Continue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="136,235,0,0" Click="ThankYouButton_Click"/>
 
     </Grid>
 </Window>
