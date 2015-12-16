@@ -38,17 +38,22 @@ namespace Interface
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             password = PasswordInput.Password;
-            if (ModelView.CheckCredentials(email, password))
+            try 
             {
-                BillableAsset asset = ModelView.GetAsset(email);
-                Application.Current.Resources["asset"] = asset;
-                ChooseTask nextWindow = new ChooseTask();
-                nextWindow.Show();
-                this.Close();
-            } else
+                if (ModelView.CheckCredentials(email, password))
+                {
+                    //BillableAsset asset = ModelView.GetAsset(email);
+                    Application.Current.Resources["asset"] = asset;
+                    ChooseTask nextWindow = new ChooseTask();
+                    nextWindow.Show();
+                    this.Close();
+                }
+            } 
+            catch
             {
-                Trace.WriteLine("Check Credentials Failed");
-                // Show Incorrect Login Info Window
+
+                LoginPopUp popup = new LoginPopUp();
+                popup.ShowDialog();
             }
         }
     }
