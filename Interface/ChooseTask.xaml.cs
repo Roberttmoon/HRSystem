@@ -16,12 +16,8 @@ using TaskTimeEntry;
 
 namespace Interface
 {
-    /// <summary>
-    /// Interaction logic for ChooseTask.xaml
-    /// </summary>
     public partial class ChooseTask : Window
     {
-
         public BillableAsset resource { get; private set; }
 
         public ChooseTask()

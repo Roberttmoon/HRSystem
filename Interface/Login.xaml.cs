@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Interface
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
     public partial class Login : Window
     {
         public string email { get; set; }
@@ -37,17 +34,17 @@ namespace Interface
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            //if (ModelView.CheckCredentials(email, password))
-            //{
-            //    BillableAsset asset = ModelView.GetAsset(email);
-            //    Application.Current.Resources["Asset"] = asset;
-            //    ChooseTask nextWindow = new ChooseTask();
-            //    nextWindow.Show();
-            //    Close();
-            //} else
-            //{
-            //    // Password Incorrect Window
-            //}
+            if (ModelView.CheckCredentials(email, password))
+            {
+                BillableAsset asset = ModelView.GetAsset(email);
+                Application.Current.Resources["asset"] = asset;
+                ChooseTask nextWindow = new ChooseTask();
+                nextWindow.Show();
+                this.Close();
+            } else
+            {
+                // Show Incorrect Login Info Window
+            }
         }
     }
 }

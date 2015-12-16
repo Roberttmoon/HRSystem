@@ -18,25 +18,20 @@ using DataAccess;
 
 namespace Interface
 {
-    /// <summary>
-    /// Interaction logic for EnterResource.xaml
-    /// </summary>
     public partial class EnterResource : Window
     {
         public string name { get; private set; }
         public string email { get; private set; }
-        private string password;
 
         public EnterResource()
         {
             InitializeComponent();
+            Master.DataContext = this;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            name = NameInput.Text;
-            email = EmailInput.Text;
-            password = PasswordInput.Password;
+            string password = PasswordInput.Password;
             BillableAsset asset = new BillableAsset(name, email);
             ModelView.AddCredentialsToDatabase(asset, password);
             ModelView.AddAssetToDatabase(asset);

@@ -8,7 +8,7 @@
         Title="TaskTime" Height="300" Width="300">
     
     <Grid>
-        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="36,201,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click"/>
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="36,201,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="168,201,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Height="23" Margin="91,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
         <Label x:Name="label" Content="Task Name" HorizontalAlignment="Left" Margin="11,31,0,0" VerticalAlignment="Top"/>
