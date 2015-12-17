@@ -11,17 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskTimeEntry;
 
 namespace Interface
 {
     /// <summary>
-    /// Interaction logic for TimeLogging.xaml
+    /// Interaction logic for ReportWindow.xaml
     /// </summary>
-    public partial class TimeLogging : Window
+    public partial class ReportWindow : Window
     {
-        public TimeLogging()
+        public List<Client> clients = ModelView.GetAllClients();
+        public Project project = new Project();
+        public Report report = new Report();
+        public ReportWindow()
         {
             InitializeComponent();
-        }
+           
+    }
     }
 }

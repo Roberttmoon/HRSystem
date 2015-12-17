@@ -57,8 +57,9 @@ namespace Interface
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
-            ShowReport showReport = new ShowReport();
-            showReport.Show();
+            ReportWindow reportWindow = new ReportWindow();
+            reportWindow.Show();
+
             Close();
         }
     }

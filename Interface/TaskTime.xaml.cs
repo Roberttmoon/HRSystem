@@ -27,6 +27,7 @@ namespace Interface
         {
             InitializeComponent();
             this.task = task;
+            DataContext = task;
 
         }
 
@@ -35,6 +36,7 @@ namespace Interface
             task.AddComment(CommentBox.Text);            
             float hoursLogged = float.Parse(LogBox.Text);
             task.AddHours(hoursLogged);
+
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -42,6 +44,11 @@ namespace Interface
             ChooseTask chooseTask = new ChooseTask();
             chooseTask.Show();
             this.Close();
+        }
+
+        private void TaskBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TaskBox.Text = task.taskName;
         }
     }
 }

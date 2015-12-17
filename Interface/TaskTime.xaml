@@ -5,17 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="TaskTime" Height="302.844" Width="300">
-
+        Title="Enter Task" Height="302.844" Width="300">
     <Grid x:Name="Master">
-        <TextBlock x:Name="Instructions" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter the amount of time you worked on this task in the Log Hours box. Add comments in the comments box if needed." VerticalAlignment="Top" Width="274"/>
-        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="112,227,0,0" VerticalAlignment="Top" Width="75" TabIndex="2"/>
-        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="192,227,0,0" VerticalAlignment="Top" Width="75" TabIndex="3" Click="Cancel_Click"/>
-        <Label x:Name="TaskNameLabel" Content="Task Name:" HorizontalAlignment="Left" Margin="23,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.67"/>
-        <Label x:Name="LogHoursLabel" Content="Log Hours:" HorizontalAlignment="Left" Margin="23,104,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CommentsLabel" Content="Comments:" HorizontalAlignment="Left" Margin="23,135,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TaskBox" HorizontalAlignment="Left" Height="23" Margin="115,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding taskName}"/>
-        <TextBox x:Name="LogBox" HorizontalAlignment="Left" Height="23" Margin="115,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding hoursLogged}" TabIndex="0"/>
-        <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Height="68" Margin="115,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" TabIndex="1"/>
+        <Label x:Name="TaskNameLabel" Content="Task Name:" HorizontalAlignment="Left" Margin="27,72,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LogHoursLabel" Content="Log Hours:" HorizontalAlignment="Left" Margin="30,109,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="CommentsLabel" Content="Comments:" HorizontalAlignment="Left" Margin="27,152,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TaskBox" HorizontalAlignment="Left" Height="23" Margin="114,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding taskName}" FontSize="12" IsReadOnly="True" TextChanged="TaskBox_TextChanged" TabIndex="0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="LogBox" HorizontalAlignment="Left" Height="23" Margin="114,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding hoursLogged}" TabIndex="1" Grid.ColumnSpan="2" />
+        <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Height="61" Margin="114,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" TabIndex="2" Grid.ColumnSpan="2" />
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="111,236,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click" TabIndex="3" />
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="191,236,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click" TabIndex="4" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter the amount of time worked on this task in the Log Hours box. Be sure to comment and then click save." VerticalAlignment="Top" Height="57" Width="274"/>
     </Grid>
 </Window>
