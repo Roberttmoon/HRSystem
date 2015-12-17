@@ -11,17 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskTimeEntry;
 
 namespace Interface
 {
     /// <summary>
-    /// Interaction logic for ShowReport.xaml
+    /// Interaction logic for ReportWindow.xaml
     /// </summary>
-    public partial class ShowReport : Window
+    public partial class ReportWindow : Window
     {
-        public ShowReport()
+        public List<Client> clients = ModelView.GetAllClients();
+        public Project project = new Project();
+        public Report report = new Report();
+        public ReportWindow()
         {
             InitializeComponent();
-        }
+           
+    }
     }
 }
