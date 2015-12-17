@@ -14,19 +14,22 @@ namespace DataAccess
     {
         public static IMongoClient _client;
         public static IMongoDatabase _database;
-        public static IMongoCollection<BsonDocument> _collection;
+        public static IMongoCollection<BsonDocument> _clientCollection;
+        public static IMongoCollection<BsonDocument> _assetCollection;
+        public static IMongoCollection<BsonDocument> _credentialCollection;
         public string _connectionString;
 
-        public MongoAccessLayer(string database, string collection)
+        public MongoAccessLayer(string database)
         {
             _connectionString = GetConnectionString();
             _client = new MongoClient(_connectionString);
             _database = _client.GetDatabase(database);
-            _collection = _database.GetCollection<BsonDocument>(collection);
+           // _clientCollection = _database.GetCollection<BsonDocument>("clients");
         }
 
-        public List<T> GetAllDocuments<T>()
+        public List<T> GetAllDocuments<T>(string collection)
         {
+            IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             List<T> output = new List<T>();
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Empty;
             List<BsonDocument> result = _collection.Find(filter).ToList();
@@ -37,19 +40,39 @@ namespace DataAccess
             return output;
         }
 
+        public IMongoCollection<BsonDocument> GetCollection(string collectionName)
+        {
+            IMongoCollection<BsonDocument> collection = null;
+            switch(collectionName)
+            {
+                case "clients":
+                    collection = _database.GetCollection<BsonDocument>("clients");
+                    break;
+                case "assets":
+                    collection = _database.GetCollection<BsonDocument>("assets");
+                    break;
+                case "credentials":
+                    collection = _database.GetCollection<BsonDocument>("credentials");
+                    break;
+            }
+            return collection;
+        }
+
         public T DeserializeFromBson<T>(BsonDocument document)
         {
             return MongoDB.Bson.Serialization.BsonSerializer.Deserialize<T>(document);
         }
 
-        public void AddDocumentFromJsonString(string json)
+        public void AddDocumentFromJsonString(string json, string collection)
         {
+            IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             BsonDocument document = JsonStringToBson(json);
             _collection.InsertOne(document);
         }
 
-        public async void ReplaceDocument(string newDocJson, KeyValuePair<string, Guid> id)
+        public async void ReplaceDocument(string newDocJson, KeyValuePair<string, Guid> id, string collection)
         {
+            IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             BsonDocument newDocument = JsonStringToBson(newDocJson);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", id.Value.ToString());
             await _collection.ReplaceOneAsync(filter, newDocument);
@@ -65,13 +88,15 @@ namespace DataAccess
             return BsonExtensionMethods.ToJson(document);
         }
 
-        public async void AddMultipleBson(List<BsonDocument> documents)
+        public async void AddMultipleBson(List<BsonDocument> documents, string collection)
         {
+            IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             await _collection.InsertManyAsync(documents);
         }
 
-        public List<string> QueryTopLevel<T>(KeyValuePair<string, T> inputFilter)
+        public List<string> QueryTopLevel<T>(KeyValuePair<string, T> inputFilter, string collection)
         {
+            IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             List<string> jsonDocs = new List<string>();
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(inputFilter.Key, inputFilter.Value.ToString());
             List<BsonDocument> result = _collection.Find(filter).ToList();
@@ -82,22 +107,25 @@ namespace DataAccess
             return jsonDocs;
         }
 
-        public async void UpdateTopLevel(KeyValuePair<string, string> updateFilter, KeyValuePair<string, string> updateSet)
+        public async void UpdateTopLevel(KeyValuePair<string, string> updateFilter, KeyValuePair<string, string> updateSet, string collection)
         {
+            IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(updateFilter.Key, updateFilter.Value);
             UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Set(updateSet.Key, updateSet.Value);
             UpdateResult result = await _collection.UpdateOneAsync(filter, update);
         }
 
-        public async void ReplaceDocument(KeyValuePair<string, string> replaceFilter, string json)
+        public async void ReplaceDocument(KeyValuePair<string, string> replaceFilter, string json, string collection)
         {
+            IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             BsonDocument document = JsonStringToBson(json);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(replaceFilter.Key, replaceFilter.Value);
             ReplaceOneResult result = await _collection.ReplaceOneAsync(filter, document);
         }
 
-        public async void DeleteDocument(KeyValuePair<string, string> deleteFilter)
+        public async void DeleteDocument(KeyValuePair<string, string> deleteFilter, string collection)
         {
+            IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(deleteFilter.Key, deleteFilter.Value);
             DeleteResult result = await _collection.DeleteOneAsync(filter);
         }
