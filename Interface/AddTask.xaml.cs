@@ -38,6 +38,7 @@ namespace Interface
         {
             newTask.timeRemaining = float.Parse(WorkHoursInput.Text);
             newTask.AddComment(CommentsInput.Text);
+            ModelView.AddTaskToDatabase(newTask);
             ModelView.UpdateProjectWithTask(project, newTask);
             AdminPannel admin = new AdminPannel();
             admin.Show();

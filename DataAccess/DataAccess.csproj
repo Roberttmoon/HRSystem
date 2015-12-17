@@ -61,6 +61,7 @@
     <Compile Include="MongoAccessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceReport.cs" />
+    <Compile Include="Serializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

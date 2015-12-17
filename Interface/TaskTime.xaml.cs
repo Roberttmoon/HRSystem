@@ -28,15 +28,16 @@ namespace Interface
             InitializeComponent();
             this.task = task;
             DataContext = task;
-
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            task.AddComment(CommentBox.Text);            
-            float hoursLogged = float.Parse(LogBox.Text);
-            task.AddHours(hoursLogged);
-
+            task.AddComment(CommentBox.Text);
+            task.AddHours(float.Parse(LogBox.Text));
+            task.SetTimeRemaining(float.Parse(LogBox.Text));
+            ModelView.StoreTask(task);
+            string messageSuccess = String.Format("Success. Time mapped to {0}.", task.taskName);
+            MessageBox.Show(messageSuccess);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -44,11 +45,6 @@ namespace Interface
             ChooseTask chooseTask = new ChooseTask();
             chooseTask.Show();
             this.Close();
-        }
-
-        private void TaskBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            TaskBox.Text = task.taskName;
-        }
+        }       
     }
 }

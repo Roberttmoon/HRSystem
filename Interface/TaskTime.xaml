@@ -10,7 +10,7 @@
         <Label x:Name="TaskNameLabel" Content="Task Name:" HorizontalAlignment="Left" Margin="27,72,0,0" VerticalAlignment="Top"/>
         <Label x:Name="LogHoursLabel" Content="Log Hours:" HorizontalAlignment="Left" Margin="30,109,0,0" VerticalAlignment="Top"/>
         <Label x:Name="CommentsLabel" Content="Comments:" HorizontalAlignment="Left" Margin="27,152,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TaskBox" HorizontalAlignment="Left" Height="23" Margin="114,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding taskName}" FontSize="12" IsReadOnly="True" TextChanged="TaskBox_TextChanged" TabIndex="0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TaskBox" HorizontalAlignment="Left" Height="23" Margin="114,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding taskName}" FontSize="12" IsReadOnly="True" TabIndex="0" Grid.ColumnSpan="2"/>
         <TextBox x:Name="LogBox" HorizontalAlignment="Left" Height="23" Margin="114,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding hoursLogged}" TabIndex="1" Grid.ColumnSpan="2" />
         <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Height="61" Margin="114,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" TabIndex="2" Grid.ColumnSpan="2" />
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="111,236,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click" TabIndex="3" />

@@ -66,7 +66,6 @@ namespace Interface
                 popup.ShowDialog();
                 EmailInput.Text = String.Empty;
                 PasswordInput.Clear();
-                
             }
         }
     }

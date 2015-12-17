@@ -14,6 +14,7 @@ namespace TaskTimeEntry
         public float hoursLogged{ get; set;}           
         public Guid clientID;
         public float timeRemaining;
+        public string status;
         public List<string> comments;
 
         public Task(Guid clientID, Guid projectID)
@@ -21,7 +22,14 @@ namespace TaskTimeEntry
             _id = Guid.NewGuid();
             this.clientID = clientID;
             this.projectID = projectID;
-            this.comments = new List<string>();
+            comments = new List<string>();
+            status = "Open";
+        }
+
+        public void SetTimeRemaining(float timeWorked)
+        {
+            timeRemaining -= timeWorked;
+            if (timeRemaining <= 0) status = "Closed";
         }
 
         public float AddHours(float hoursLogged)

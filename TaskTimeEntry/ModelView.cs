@@ -94,6 +94,17 @@ namespace TaskTimeEntry
                 mongo.AddDocumentFromJsonString(json, "projects");
             }
         }
+
+        public static void AddTaskToDatabase(Task task)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main");
+            List<Task> tasks = mongo.GetAllDocuments<Task>("tasks");
+            if (!tasks.Exists(item => item._id == task._id))
+            {
+                string json = Serializer<Task>.SerializeToJson(task);
+                mongo.AddDocumentFromJsonString(json, "tasks");
+            }
+        }
         #endregion
 
         #region Get Items from Database
@@ -124,6 +135,33 @@ namespace TaskTimeEntry
             MongoAccessLayer mongo = new MongoAccessLayer("main");
             List<Project> projects = mongo.GetAllDocuments<Project>("projects");
             return projects.Find(item => item._id == id);
+        }
+
+        public static List<Project> GetProjectsByAsset(BillableAsset asset)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main");
+            List<Project> projects = mongo.GetAllDocuments<Project>("projects");
+            List<Project> output = new List<Project>();
+            foreach(Project project in projects)
+            {
+                foreach(Guid id in project.resources)
+                {
+                    if (asset._id == id) output.Add(project);
+                }
+            }
+            return output;
+        }
+
+        public static List<Task> GetTasksByProject(Project project)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main");
+            List<Task> tasks = mongo.GetAllDocuments<Task>("tasks");
+            List<Task> output = new List<Task>();
+            foreach(Task task in tasks)
+            {
+                if (task.projectID == project._id) output.Add(task);
+            }
+            return output;
         }
 
         public static Client GetClient(string email)
@@ -180,6 +218,13 @@ namespace TaskTimeEntry
             string json = Serializer<BillableAsset>.SerializeToJson(asset);
             mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", asset._id), "assets");
         }
+
+        public static void StoreTask(Task task)
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main");
+            string json = Serializer<Task>.SerializeToJson(task);
+            mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", task._id), "tasks");
+        }
         #endregion
 
         #region Update Objects
@@ -191,7 +236,7 @@ namespace TaskTimeEntry
 
         public static void UpdateProjectWithTask(Project project, Task task)
         {
-            project.AddTask(task);
+            project.AddTask(task._id);
             StoreProject(project);
         }
 

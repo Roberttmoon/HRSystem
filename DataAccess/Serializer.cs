@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskTimeEntry
+namespace DataAccess
 {
     public static class Serializer<T>
     {

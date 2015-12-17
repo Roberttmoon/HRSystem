@@ -16,22 +16,22 @@ namespace TaskTimeEntry
         public int billableHoursActual { get; set; }
         public bool statusComplete { get; set; }
         public List<Guid> resources { get; private set; }
-        public List<Task> tasks { get; private set; }
+        public List<Guid> tasks { get; private set; }
         public List<string> comments { get; private set; }
 
         public Project()
         {
             _id = Guid.NewGuid();
             resources = new List<Guid>();
-            tasks = new List<Task>();
+            tasks = new List<Guid>();
             comments = new List<string>();
             billableHoursActual = 0;
             statusComplete = false;
         }
 
-        public void AddTask(Task task)
+        public void AddTask(Guid id)
         {
-            tasks.Add(task);
+            tasks.Add(id);
         }
 
         public void AddComment(string comment)

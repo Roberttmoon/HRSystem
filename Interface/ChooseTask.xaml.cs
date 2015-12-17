@@ -24,15 +24,16 @@ namespace Interface
         {
             InitializeComponent();
             resource = (BillableAsset)Application.Current.FindResource("asset");
-            Master.DataContext = resource;
-            ChooseProjectBox.ItemsSource = resource.projects; 
-                                
+            List<Project> projects = ModelView.GetProjectsByAsset(resource);
+            DataContext = this; 
+            ChooseProjectBox.ItemsSource = projects;
         }
            
         private void ChooseProjectBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Project project = (Project)ChooseProjectBox.SelectedItem;
-            ChooseTaskBox.ItemsSource = project.tasks;
+            List<TaskTimeEntry.Task> tasks = ModelView.GetTasksByProject(project);
+            ChooseTaskBox.ItemsSource = tasks;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -45,6 +46,7 @@ namespace Interface
             }
             this.Close();
         }
+
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
             TaskTimeEntry.Task task = (TaskTimeEntry.Task)ChooseTaskBox.SelectedItem;

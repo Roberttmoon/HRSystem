@@ -53,6 +53,9 @@ namespace DataAccess
                 case "projects":
                     collection = _database.GetCollection<BsonDocument>("projects");
                     break;
+                case "tasks":
+                    collection = _database.GetCollection<BsonDocument>("tasks");
+                    break;
             }
             return collection;
         }

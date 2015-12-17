@@ -20,14 +20,14 @@ namespace Interface
     /// </summary>
     public partial class EditProject : Window
     {
-        Company company;
         List<Project> projects;
+        List<BillableAsset> assets;
 
         public EditProject()
         {
             InitializeComponent();
-            company = new Company();
-            projects = company.projects;
+            projects = ModelView.GetAllProjects();
+            assets = ModelView.GetAllAssets();
             DataContext = this;
             ChooseProject.ItemsSource = projects;
         }
@@ -50,7 +50,7 @@ namespace Interface
 
         private void AddResource_Click(object sender, RoutedEventArgs e)
         {
-            AddResourceToProject addResource = new AddResourceToProject(company.assets, (Project)ChooseProject.SelectedItem);
+            AddResourceToProject addResource = new AddResourceToProject(assets, (Project)ChooseProject.SelectedItem);
             addResource.Show();
             Close();
         }
