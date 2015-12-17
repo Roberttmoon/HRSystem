@@ -40,7 +40,8 @@ namespace Interface
             newTask.AddComment(CommentsInput.Text);
             ModelView.AddTaskToDatabase(newTask);
             ModelView.UpdateProjectWithTask(project, newTask);
-            AdminPannel admin = new AdminPannel();
+
+            AdminPanel admin = new AdminPanel();
             admin.Show();
             Close();
         }

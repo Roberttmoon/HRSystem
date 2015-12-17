@@ -75,7 +75,7 @@ namespace Interface
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            AdminPannel admin = new AdminPannel();
+            AdminPanel admin = new AdminPanel();
             admin.Show();
             this.Close();
             

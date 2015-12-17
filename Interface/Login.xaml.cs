@@ -49,7 +49,7 @@ namespace Interface
                             Close();
                         }
                         else if (asset.privilege) {
-                            AdminPannel admin = new AdminPannel();
+                            AdminPanel admin = new AdminPanel();
                             admin.Show();
                             Close();
                         }

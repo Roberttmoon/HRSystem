@@ -17,11 +17,6 @@ namespace TaskTimeEntry
         public string status;
         public List<string> comments;
 
-        public string ID { get { return _id.ToString(); } }
-        public string ProjectID { get { return projectID.ToString(); } }
-        public string ClientID { get { return clientID.ToString(); } }
-        public string TimeRemaining { get { return timeRemaining.ToString(); } }
-
         public Task(Guid clientID, Guid projectID)
         {
             _id = Guid.NewGuid();

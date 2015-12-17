@@ -73,8 +73,8 @@
     <Compile Include="AddTask.xaml.cs">
       <DependentUpon>AddTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminPannel.xaml.cs">
-      <DependentUpon>AdminPannel.xaml</DependentUpon>
+    <Compile Include="AdminPanel.xaml.cs">
+      <DependentUpon>AdminPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditProject.xaml.cs">
       <DependentUpon>EditProject.xaml</DependentUpon>
@@ -102,7 +102,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AdminPannel.xaml">
+    <Page Include="AdminPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

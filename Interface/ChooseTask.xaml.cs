@@ -42,7 +42,7 @@ namespace Interface
             BillableAsset asset = (BillableAsset)Application.Current.FindResource("asset");
             if (asset.privilege)
             {
-                AdminPannel admin = new AdminPannel();
+                AdminPanel admin = new AdminPanel();
                 admin.Show();
             }
             this.Close();
@@ -53,6 +53,14 @@ namespace Interface
             TaskTimeEntry.Task task = (TaskTimeEntry.Task)ChooseTaskBox.SelectedItem;
             TaskTime taskTime = new TaskTime(task);
             taskTime.Show();
+            Close();
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources["asset"] = null;
+            Login login = new Login();
+            login.Show();
             Close();
         }
     }
