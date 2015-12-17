@@ -56,5 +56,10 @@ namespace Interface
             editProject.Show();
             Close();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ShowReport showReport = new ShowReport();
+        }
     }
 }
