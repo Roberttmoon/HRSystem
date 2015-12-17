@@ -5,14 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="AdminPannel" Height="260.593" Width="274.575">
-    <Grid Margin="53,0,0,0">
-        <Button x:Name="WorkOnProject" Content="Work on project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,10,0,0" TabIndex="0" Click="WorkOnProject_Click"/>
-        <Button x:Name="AddATask" Content="Add task to project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,35,0,0" TabIndex="1" Click="AddATask_Click"/>
-        <Button x:Name="AddAProject" Content="Add Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,60,0,0" TabIndex="2" Click="AddAProject_Click"/>
-        <Button x:Name="EditProject" Content="Edit Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,85,0,0" TabIndex="3" Click="EditProject_Click"/>
-        <Button x:Name="AddUsers" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="10,110,0,0" TabIndex="4" Click="AddUsers_Click"/>
-        <Button x:Name="button" Content="Reports" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.504,-0.227" Click="button_Click"/>
+
+        Title="AdminPannel" Height="277" Width="216">
+    <Grid Height="230" VerticalAlignment="Top" Margin="10,10,2,0">
+        <Button x:Name="WorkOnProject" Content="Work on project" VerticalAlignment="Top" Margin="35,53,0,0" TabIndex="0" Click="WorkOnProject_Click" HorizontalAlignment="Left" Width="135"/>
+        <Button x:Name="AddAProject" Content="Add Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="35,104,0,0" TabIndex="2" Click="AddAProject_Click"/>
+        <Button x:Name="EditProject" Content="Edit Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="35,129,0,0" TabIndex="3" Click="EditProject_Click"/>
+        <Button x:Name="AddUsers" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="35,200,0,0" TabIndex="4" Click="AddUsers_Click"/>
+        <Label x:Name="title" Content="Administrator options:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="170" FontSize="16"/>
+        <Label x:Name="stdWork" Content="Log Time on Project:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,27,0,0"/>
+        <Label x:Name="adminOptions" Content="Manage Projects:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,73,0,0"/>
+        <Label x:Name="HROpts" Content="HR options:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.58,7.498" Margin="35,174,0,0"/>
+        <Button x:Name="button" Content="Reports" HorizontalAlignment="Left" Margin="35,156,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.147,0.182"/>
 
     </Grid>
 </Window>

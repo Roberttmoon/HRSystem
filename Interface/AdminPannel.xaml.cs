@@ -29,13 +29,11 @@ namespace Interface
 
         private void WorkOnProject_Click(object sender, RoutedEventArgs e)
         {
-            TaskTime taskTime = new TaskTime(task);
-            
+            ChooseTask chooseTask = new ChooseTask();
+            chooseTask.Show();
+            Close();
         }
-        private void AddATask_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void AddAProject_Click(object sender, RoutedEventArgs e)
         {

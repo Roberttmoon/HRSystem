@@ -36,8 +36,12 @@ namespace Interface
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
+            BillableAsset asset = (BillableAsset)Application.Current.FindResource("asset");
+            if (asset.privilege)
+            {
+                AdminPannel admin = new AdminPannel();
+                admin.Show();
+            }
             this.Close();
         }
     }

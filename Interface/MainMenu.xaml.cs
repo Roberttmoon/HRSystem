@@ -17,6 +17,7 @@ namespace Interface
     /// <summary>
     /// Interaction logic for MainMenu.xaml
     /// </summary>
+    [Obsolete("no longer supported, going away soon!!!!!")]
     public partial class MainMenu : Window
     {
         public MainMenu()
