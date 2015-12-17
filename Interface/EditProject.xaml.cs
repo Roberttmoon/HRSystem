@@ -34,8 +34,8 @@ namespace Interface
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu menu = new MainMenu();
-            menu.Show();
+            AdminPannel admin = new AdminPannel();
+            admin.Show();
             Close();
         }
 

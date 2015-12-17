@@ -55,7 +55,6 @@ namespace Interface
                         }
                     }catch{
                         Client client = ModelView.GetClient(email);
-                        Application.Current.Resources["client"] = client;
                         ThankyouPopup popup = new ThankyouPopup();
                         popup.ShowDialog();
                     }
