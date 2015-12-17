@@ -11,7 +11,7 @@ namespace TaskTimeEntry
         public string taskName { get; set; }
         public Guid _id;
         public Guid projectID;
-        public Dictionary<string, float> hoursLogged;           
+        public Dictionary<string, float> hoursLogged; 
         public Guid clientID;
         public float timeRemaining;
         public string status;
@@ -50,5 +50,8 @@ namespace TaskTimeEntry
         {
             comments.Add(comment);
         }
+
+
+
     }
 }

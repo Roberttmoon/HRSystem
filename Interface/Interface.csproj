@@ -82,6 +82,12 @@
     <Compile Include="LoginPopUp.xaml.cs">
       <DependentUpon>LoginPopUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TaskReport.xaml.cs">
+      <DependentUpon>TaskReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TaskTime.xaml.cs">
       <DependentUpon>TaskTime.xaml</DependentUpon>
     </Compile>
@@ -138,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TaskReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

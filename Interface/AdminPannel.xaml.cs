@@ -59,7 +59,6 @@ namespace Interface
         {
             ReportWindow reportWindow = new ReportWindow();
             reportWindow.Show();
-
             Close();
         }
     }

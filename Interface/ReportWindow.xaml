@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="ReportWindow" Height="300" Width="300">
+        Title="Choose Task" Height="300" Width="300">
     <Grid>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="195" Margin="82,52,0,0" VerticalAlignment="Top" Width="139"/>
-
+        <Button x:Name="TaskReport" Content="Get Task Report" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="169,234,0,0" Click="TaskReport_Click"/>
+        <ListBox x:Name="TaskList" HorizontalAlignment="Left" Height="192" Margin="29,26,0,0" VerticalAlignment="Top" Width="236">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding taskName}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

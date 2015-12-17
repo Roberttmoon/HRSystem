@@ -20,13 +20,21 @@ namespace Interface
     /// </summary>
     public partial class ReportWindow : Window
     {
-        public List<Client> clients = ModelView.GetAllClients();
-        public Project project = new Project();
-        public Report report = new Report();
+        List<TaskTimeEntry.Task> tasks;
         public ReportWindow()
         {
             InitializeComponent();
-           
-    }
+            tasks = ModelView.GetAllTasks();
+            DataContext = this;
+            TaskList.ItemsSource = tasks;
+        }
+
+        private void TaskReport_Click(object sender, RoutedEventArgs e)
+        {
+            TaskTimeEntry.Task task = (TaskTimeEntry.Task)TaskList.SelectedItem;
+            TaskReport taskReport = new TaskReport(task);
+            taskReport.Show();
+            Close();
+        }
     }
 }

@@ -6,26 +6,34 @@ using System.Threading.Tasks;
 
 namespace TaskTimeEntry
 {
-   
-    public class Report
+    public class Report<T> : IEnumerable<T>
     {
-        public List<Client> clients = ModelView.GetAllClients();
-        public Task task;
-        public Project project;
-        public List<string> comments;
+        public T[] items = null;
+        int freeIndex = 0;
 
-        public IEnumerable<string> DisplayReport()
+        public Report()
         {
-            //comments = new List<string>();
-            IEnumerable<string> result = from message in Enumerable.ToList(comments)select message;
-            foreach (string message in result)
-            {
-                yield return message;
-            }
-
+            items = new T[10];
         }
 
+        public void AddItem(T item)
+        {
+            items[freeIndex] = item;
+            freeIndex += 1;
+        }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach(T item in items)
+            {
+                if (item == null) break;
+                yield return item;
+            }
+        }
 
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
     }
 }

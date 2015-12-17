@@ -20,6 +20,17 @@ namespace TaskTimeEntry
             if (password == entered.password) return true;
             else return false;
         }
+
+        public static Report<object> CreateTaskReport(Task task)
+        {
+            Report<object> report = new Report<object>();
+            report.AddItem(task.taskName);
+            report.AddItem(task._id);
+            report.AddItem(task.projectID);
+            report.AddItem(task.clientID);
+            report.AddItem(task.hoursLogged);
+            return report;
+        }
         #endregion
 
         #region Add To Database
@@ -196,6 +207,12 @@ namespace TaskTimeEntry
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main");
             return mongo.GetAllDocuments<Project>("projects");
+        }
+
+        public static List<Task> GetAllTasks()
+        {
+            MongoAccessLayer mongo = new MongoAccessLayer("main");
+            return mongo.GetAllDocuments<Task>("tasks");
         }
         #endregion
 
