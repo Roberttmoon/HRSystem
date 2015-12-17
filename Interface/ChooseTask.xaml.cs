@@ -33,6 +33,7 @@ namespace Interface
         {
             Project project = (Project)ChooseProjectBox.SelectedItem;
             List<TaskTimeEntry.Task> tasks = ModelView.GetTasksByProject(project);
+            tasks = tasks.Where(item => item.status == "Open").ToList();
             ChooseTaskBox.ItemsSource = tasks;
         }
 

@@ -22,12 +22,14 @@ namespace Interface
     public partial class TaskTime : Window
     {       
         public TaskTimeEntry.Task task;
+        BillableAsset asset;
 
         public TaskTime(TaskTimeEntry.Task task)
         {
             InitializeComponent();
             this.task = task;
             DataContext = task;
+            asset = (BillableAsset)Application.Current.FindResource("asset");
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -35,9 +37,13 @@ namespace Interface
             task.AddComment(CommentBox.Text);
             task.AddHours(float.Parse(LogBox.Text));
             task.SetTimeRemaining(float.Parse(LogBox.Text));
+            task.AddTimeLog(asset.name, float.Parse(LogBox.Text));
             ModelView.StoreTask(task);
             string messageSuccess = String.Format("Success. Time mapped to {0}.", task.taskName);
             MessageBox.Show(messageSuccess);
+            ChooseTask chooseTask = new ChooseTask();
+            chooseTask.Show();
+            this.Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

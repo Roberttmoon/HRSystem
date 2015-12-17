@@ -11,6 +11,7 @@ namespace TaskTimeEntry
 {
     public static class ModelView
     {
+        #region Miscellaneous
         public static bool CheckCredentials(string email, string password)
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main");
@@ -19,6 +20,7 @@ namespace TaskTimeEntry
             if (password == entered.password) return true;
             else return false;
         }
+        #endregion
 
         #region Add To Database
         public static void AddCredentialsToDatabase(BillableAsset asset, string password)
