@@ -36,5 +36,12 @@ namespace Interface
             taskReport.Show();
             Close();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPannel admin = new AdminPannel();
+            admin.Show();
+            Close();
+        }
     }
 }
