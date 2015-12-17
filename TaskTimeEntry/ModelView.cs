@@ -79,8 +79,6 @@ namespace TaskTimeEntry
             MongoAccessLayer mongo = new MongoAccessLayer("main", "credentials");
             List<Credentials> allCredentials = mongo.GetAllDocuments<Credentials>();
             Credentials entered = allCredentials.Find(item => item.email == email);
-            Trace.WriteLine(entered.email);
-            Trace.WriteLine(entered.password);
             if (password == entered.password) return true;
             else return false;
         }
@@ -107,6 +105,18 @@ namespace TaskTimeEntry
             return client.Find(item => item._id == id);
         }
 
+        public static void StoreClient(Client client, MongoAccessLayer mongo)
+        {
+            string json = Serializer<Client>.SerializeToJson(client);
+            mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", client._id));
+        }
+
+        public static void StoreAsset(BillableAsset asset, MongoAccessLayer mongo)
+        {
+            string json = Serializer<BillableAsset>.SerializeToJson(asset);
+            mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", asset._id));
+        }
+
         public static List<Client> GetAllClients()
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
@@ -126,23 +136,32 @@ namespace TaskTimeEntry
             mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", asset._id));
         }
 
-        public static void UpdateClient(Project project, Client client)
+        public static void UpdateClientWithProject(Project project, Client client)
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
             project.clientID = client._id;
             client.AddProject(project);
-            string json = Serializer<Client>.SerializeToJson(client);
-            mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", client._id));
+            StoreClient(client, mongo);
         }
 
-        public static void UpdateProject(Client client, Project project, Task task)
+        public static void UpdateProjectWithTask(Client client, Project project, Task task)
         {
             MongoAccessLayer mongo = new MongoAccessLayer("main", "clients");
             project.AddTask(task);
             client.ReplaceProject(project._id, project);
-            string json = Serializer<Client>.SerializeToJson(client);
-            mongo.ReplaceDocument(json, new KeyValuePair<string, Guid>("_id", client._id));
+            StoreClient(client, mongo);
         }
-        
+
+        public static void UpdateProjectWithAsset(Project project, BillableAsset asset)
+        {
+            MongoAccessLayer mongoClient = new MongoAccessLayer("main", "clients");
+            MongoAccessLayer mongoAsset = new MongoAccessLayer("main", "assets");
+            Client client = GetClient(project.clientID);
+            project.AddResource(asset._id);
+            asset.PopulateProjects();
+            client.ReplaceProject(project._id, project);
+            StoreClient(client, mongoClient);
+            StoreAsset(asset, mongoAsset);
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace Interface
         {
             newTask.timeRemaining = float.Parse(WorkHoursInput.Text);
             newTask.AddComment(CommentsInput.Text);
-            ModelView.UpdateProject(client, project, newTask);
+            ModelView.UpdateProjectWithTask(client, project, newTask);
             MainMenu menu = new MainMenu();
             menu.Show();
             Close();

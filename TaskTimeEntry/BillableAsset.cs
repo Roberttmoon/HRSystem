@@ -22,14 +22,27 @@ namespace TaskTimeEntry
             projects = new List<Project>();
         }
 
+        public void PopulateProjects()
+        {
+            List<Client> clients = ModelView.GetAllClients();
+            foreach(Client client in clients)
+            {
+                foreach(Project project in client.projects)
+                {
+                    foreach(Guid id in project.resources)
+                    {
+                        if (id == _id)
+                        {
+                            projects.Add(project);
+                        }
+                    }
+                }
+            }
+        }
+
         void AddTaskToTaskList(Task task, ref List<Task> taskList)
         {
             taskList.Add(task);
-        }
-
-        public void addProject(Project project, List<Task> task)
-        {
-            throw new NotImplementedException();
         }
     }
 }

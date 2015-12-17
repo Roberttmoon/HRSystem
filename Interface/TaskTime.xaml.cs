@@ -20,22 +20,27 @@ namespace Interface
     /// Interaction logic for TaskTime.xaml
     /// </summary>
     public partial class TaskTime : Window
-    {
-        public TaskTime()
+    {       
+        public TaskTimeEntry.Task task;
+
+        public TaskTime(TaskTimeEntry.Task task)
         {
             InitializeComponent();
+            this.task = task;
+
         }
 
-        public int Save_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
-            int hoursLogged = int.Parse(LogBox.Text);
-            throw new NotImplementedException();
+            task.AddComment(CommentBox.Text);            
+            float hoursLogged = float.Parse(LogBox.Text);
+            task.AddHours(hoursLogged);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
+            AdminPannel adminPannel = new AdminPannel();
+            adminPannel.Show();
             this.Close();
         }
     }

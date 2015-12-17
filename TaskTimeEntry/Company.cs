@@ -28,7 +28,7 @@ namespace TaskTimeEntry
                 }
             }
             return allProjects;
-        } 
+        }
 
         public void AddProject(Project project)
         {

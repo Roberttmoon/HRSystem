@@ -47,5 +47,12 @@ namespace Interface
             addTask.Show();
             Close();
         }
+
+        private void AddResource_Click(object sender, RoutedEventArgs e)
+        {
+            AddResourceToProject addResource = new AddResourceToProject(company.assets, (Project)ChooseProject.SelectedItem);
+            addResource.Show();
+            Close();
+        }
     }
 }
