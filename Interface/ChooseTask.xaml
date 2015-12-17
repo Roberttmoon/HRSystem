@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Interface"
         mc:Ignorable="d"
-        Title="Choose Task" Height="374" Width="500">
+        Title="Choose Task" Height="389.2" Width="549.6">
     <Grid x:Name="Master">
-        <Label x:Name="ChooseProjectLabel" Content="Choose a Project" HorizontalAlignment="Left" Margin="71,50,0,0" VerticalAlignment="Top" Width="100"/>
-        <ListBox x:Name="ChooseProjectBox" HorizontalAlignment="Left" Height="206" Margin="10,81,0,0" VerticalAlignment="Top" Width="229" SelectionChanged="ChooseProjectBox_SelectionChanged">
+        <Label x:Name="ChooseProjectLabel" Content="Choose a Project" HorizontalAlignment="Left" Margin="92,55,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox x:Name="ChooseProjectBox" HorizontalAlignment="Left" Height="206" Margin="30,81,0,0" VerticalAlignment="Top" Width="229" SelectionChanged="ChooseProjectBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding projectName}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label x:Name="ChooseTaskLabel" Content="Choose a Task" HorizontalAlignment="Left" Margin="329,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.752" Width="86"/>
-        <ListBox x:Name="ChooseTaskBox" HorizontalAlignment="Left" Height="206" Margin="255,81,0,0" VerticalAlignment="Top" Width="229">
+        <Label x:Name="ChooseTaskLabel" Content="Choose a Task" HorizontalAlignment="Left" Margin="351,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.752" Width="86"/>
+        <ListBox x:Name="ChooseTaskBox" HorizontalAlignment="Left" Height="206" Margin="275,81,0,0" VerticalAlignment="Top" Width="229">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding taskName}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="409,316,0,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>
-        <Button x:Name="ContinueButton" Content="OK" HorizontalAlignment="Left" Margin="329,316,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.347,-0.242" Click="ContinueButton_Click"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Choose a project to bring up a list of your open tasks within that project. Then choose a task you'd like to map time against and click OK. " VerticalAlignment="Top" Width="474" Height="33"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="429,316,0,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>
+        <Button x:Name="ContinueButton" Content="OK" HorizontalAlignment="Left" Margin="349,316,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.347,-0.242" Click="ContinueButton_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="30,10,0,0" TextWrapping="Wrap" Text="Choose a project to bring up a list of your open tasks within that project. Then choose a task you'd like to map time against and click OK. " VerticalAlignment="Top" Width="474" Height="33"/>
     </Grid>
 </Window>

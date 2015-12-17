@@ -13,19 +13,11 @@ namespace TaskTimeEntry
         public string email { get; protected set; }
         public Guid _id { get; protected set; }
         public bool privilege { get; set; }
-        public List<Project> projects { get; protected set; }
+        public List<Guid> projects { get; protected set; }
 
-        public void AddProject(Project project)
+        public void AddProject(Guid id)
         {
-            projects.Add(project);
-        }
-
-
-        public void ReplaceProject(Guid projectID, Project newProject)
-        {
-            Project projectToReplace = projects.Find(item => item._id == projectID);
-            int replaceIndex = projects.IndexOf(projectToReplace);
-            projects[replaceIndex] = newProject;
+            projects.Add(id);
         }
 
         public int LogTime(Task task, float time, string comment)

@@ -36,9 +36,11 @@ namespace Interface
 
         private void PTaddButton_Click(object sender, RoutedEventArgs e)
         {
+            Client client = (Client)ChooseClient.SelectedItem;
             project.billableHoursSigned = Int32.Parse(PTbillableHoursTextBox.Text);
             project.AddComment(PTcommentTextbox.Text);
-            Client client = (Client)ChooseClient.SelectedItem;
+            project.clientID = client._id;
+            ModelView.AddProjectToDatabase(project);
             ModelView.UpdateClientWithProject(project, client);
             MessageBox.Show("Success. Project added to client.");
             AddTask addTask = new AddTask(client, project);

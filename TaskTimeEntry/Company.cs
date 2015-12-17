@@ -10,24 +10,13 @@ namespace TaskTimeEntry
     {
         public List<BillableAsset> assets;
         public List<Client> clients;
+        public List<Project> projects;
 
         public Company()
         {
             assets = ModelView.GetAllAssets();
             clients = ModelView.GetAllClients();
-        }
-
-        public List<Project> GetAllProjects()
-        {
-            List<Project> allProjects = new List<Project>();
-            foreach(Client client in clients)
-            {
-                foreach(Project project in client.projects)
-                {
-                    allProjects.Add(project);
-                }
-            }
-            return allProjects;
+            projects = ModelView.GetAllProjects();
         }
 
         public void AddProject(Project project)

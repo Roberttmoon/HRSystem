@@ -27,7 +27,7 @@ namespace Interface
         {
             InitializeComponent();
             company = new Company();
-            projects = company.GetAllProjects();
+            projects = company.projects;
             DataContext = this;
             ChooseProject.ItemsSource = projects;
         }
