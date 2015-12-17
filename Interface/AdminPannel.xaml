@@ -17,6 +17,5 @@
         <Label x:Name="adminOptions" Content="Manage Projects:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,73,0,0"/>
         <Label x:Name="HROpts" Content="HR options:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.58,7.498" Margin="35,174,0,0"/>
         <Button x:Name="button" Content="Reports" HorizontalAlignment="Left" Margin="35,153,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.147,0.182" Click="button_Click_1"/>
-
     </Grid>
 </Window>
