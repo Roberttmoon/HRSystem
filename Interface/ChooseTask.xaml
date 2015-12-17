@@ -10,14 +10,14 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="31,10,0,0" TextWrapping="Wrap" Text="Choose a project to bring up a list of your open tasks within that project. Then choose a task you'd like to map time against and click OK. " VerticalAlignment="Top" Width="474" Height="33"/>
         <Label x:Name="ChooseProjectLabel" Content="Choose a Project" HorizontalAlignment="Left" Margin="92,57,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="ChooseTaskLabel" Content="Choose a Task" HorizontalAlignment="Left" Margin="350,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.752" Width="86"/>
-        <ListBox x:Name="ChooseProjectBox" HorizontalAlignment="Left" Height="222" Margin="31,83,0,0" VerticalAlignment="Top" Width="229" SelectionChanged="ChooseProjectBox_SelectionChanged" TabIndex="0" >
+        <ListBox x:Name="ChooseProjectBox" HorizontalAlignment="Left" Height="209" Margin="31,83,0,0" VerticalAlignment="Top" Width="229" SelectionChanged="ChooseProjectBox_SelectionChanged" TabIndex="0" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding projectName}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="ChooseTaskBox" HorizontalAlignment="Left" Margin="276,83,0,54.2" Width="229" TabIndex="1">
+        <ListBox x:Name="ChooseTaskBox" HorizontalAlignment="Left" Margin="276,83,0,67.2" Width="229" TabIndex="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding taskName}"/>

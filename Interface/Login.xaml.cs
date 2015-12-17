@@ -53,11 +53,17 @@ namespace Interface
                             admin.Show();
                             Close();
                         }
-                    }catch{
+                    } catch {
                         Client client = ModelView.GetClient(email);
                         ThankyouPopup popup = new ThankyouPopup();
                         popup.ShowDialog();
                     }
+                } else
+                {
+                    LoginPopUp popup = new LoginPopUp();
+                    popup.ShowDialog();
+                    EmailInput.Text = String.Empty;
+                    PasswordInput.Clear();
                 }
             }
             catch
