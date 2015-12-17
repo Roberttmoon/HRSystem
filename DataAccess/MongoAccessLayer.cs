@@ -14,17 +14,13 @@ namespace DataAccess
     {
         public static IMongoClient _client;
         public static IMongoDatabase _database;
-        public static IMongoCollection<BsonDocument> _clientCollection;
-        public static IMongoCollection<BsonDocument> _assetCollection;
-        public static IMongoCollection<BsonDocument> _credentialCollection;
         public string _connectionString;
 
         public MongoAccessLayer(string database)
         {
-            _connectionString = GetConnectionString();
+            _connectionString = Credentials.mongoDBConnectionString;
             _client = new MongoClient(_connectionString);
             _database = _client.GetDatabase(database);
-           // _clientCollection = _database.GetCollection<BsonDocument>("clients");
         }
 
         public List<T> GetAllDocuments<T>(string collection)
@@ -131,19 +127,6 @@ namespace DataAccess
             IMongoCollection<BsonDocument> _collection = GetCollection(collection);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq(deleteFilter.Key, deleteFilter.Value);
             DeleteResult result = await _collection.DeleteOneAsync(filter);
-        }
-
-        public string GetConnectionString()
-        {
-            string fileName = @"connectionstring.txt";
-            string path = Path.Combine(Environment.CurrentDirectory, fileName);
-            try
-            {
-                return File.ReadAllText(path);
-            } catch
-            {
-                return "mongodb://gandalf:fooledeverybody@ds047722.mongolab.com:47722/main";
-            }
         }
     }
 }
