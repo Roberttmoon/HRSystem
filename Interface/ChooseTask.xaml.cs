@@ -25,7 +25,8 @@ namespace Interface
             InitializeComponent();
             resource = (BillableAsset)Application.Current.FindResource("asset");
             Master.DataContext = resource;
-            ChooseProjectBox.ItemsSource = resource.projects;                        
+            ChooseProjectBox.ItemsSource = resource.projects; 
+                                
         }
            
         private void ChooseProjectBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -43,6 +44,13 @@ namespace Interface
                 admin.Show();
             }
             this.Close();
+        }
+        private void ContinueButton_Click(object sender, RoutedEventArgs e)
+        {
+            TaskTimeEntry.Task task = (TaskTimeEntry.Task)ChooseTaskBox.SelectedItem;
+            TaskTime taskTime = new TaskTime(task);
+            taskTime.Show();
+            Close();
         }
     }
 }

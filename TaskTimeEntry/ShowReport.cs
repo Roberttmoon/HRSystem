@@ -9,6 +9,7 @@ namespace TaskTimeEntry
    
     public class ShowReport
     {
+        public List<Client> clients = ModelView.GetAllClients();
         public Task task;
         public Project project;
         public List<string> comments;

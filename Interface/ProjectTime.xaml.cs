@@ -55,8 +55,8 @@ namespace Interface
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            AdminPannel admin = new AdminPannel();
-            admin.Show();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
             this.Close();
         }
     }

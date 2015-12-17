@@ -39,8 +39,8 @@ namespace Interface
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            AdminPannel adminPannel = new AdminPannel();
-            adminPannel.Show();
+            ChooseTask chooseTask = new ChooseTask();
+            chooseTask.Show();
             this.Close();
         }
     }
