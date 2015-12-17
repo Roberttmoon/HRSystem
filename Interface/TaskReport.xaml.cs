@@ -23,11 +23,12 @@ namespace Interface
     {
         public TaskReport(TaskTimeEntry.Task task)
         {
-            InitializeComponent();
             Report<object> report = ModelView.CreateTaskReport(task);
-            DataContext = task;
+            TaskStrings ts = new TaskStrings(task);
+            DataContext = ts;
+            InitializeComponent();
             TaskLog.DataContext = report;
-            foreach(object item in report)
+            foreach (object item in report)
             {
                 if (item.GetType() == typeof(Dictionary<string, float>))
                 {

@@ -42,5 +42,12 @@ namespace Interface
             editProject.Show();
             Close();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            EditProject editProject = new EditProject();
+            editProject.Show();
+            Close();
+        }
     }
 }
