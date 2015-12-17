@@ -9,15 +9,15 @@
     <Grid x:Name="Master">
         <TextBlock x:Name="Instructions" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="To edit a project, choose the project that you'd like to edit and then click one of the options below." VerticalAlignment="Top" Height="50" Width="362"/>
         <Label x:Name="ProjectLabel" Content="Choose Project:" HorizontalAlignment="Left" Margin="8,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.42,2.555"/>
-        <ListBox x:Name="ChooseProject" HorizontalAlignment="Left" Height="179" Margin="106,60,0,0" VerticalAlignment="Top" Width="266">
+        <ListBox x:Name="ChooseProject" HorizontalAlignment="Left" Height="179" Margin="106,60,0,0" VerticalAlignment="Top" Width="266" TabIndex="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding projectName}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="AddTask" Content="Add Task" HorizontalAlignment="Left" Margin="217,262,0,0" VerticalAlignment="Top" Width="75" Click="AddTask_Click"/>
-        <Button x:Name="AddResource" Content="Add Resource" HorizontalAlignment="Left" Margin="122,262,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.688,0.65" Click="AddResource_Click"/>
-        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="297,262,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click"/>
+        <Button x:Name="AddResource" Content="Add Resource" HorizontalAlignment="Left" Margin="122,262,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.688,0.65" Click="AddResource_Click" TabIndex="1"/>
+        <Button x:Name="AddTask" Content="Add Task" HorizontalAlignment="Left" Margin="217,262,0,0" VerticalAlignment="Top" Width="75" Click="AddTask_Click" TabIndex="2"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="297,262,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click" TabIndex="3"/>
     </Grid>
 </Window>

@@ -8,13 +8,13 @@
         Title="TaskTime" Height="300" Width="300">
     
     <Grid x:Name="Master">
-        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="36,201,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="168,201,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click"/>
-        <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Height="23" Margin="91,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
         <Label x:Name="label" Content="Task Name" HorizontalAlignment="Left" Margin="11,31,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Log Hours" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Comments" HorizontalAlignment="Left" Margin="11,140,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TaskBox" HorizontalAlignment="Left" Height="23" Margin="91,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding taskName}"/>
-        <TextBox x:Name="LogBox" HorizontalAlignment="Left" Height="23" Margin="91,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding hoursLogged}"/>
+        <TextBox x:Name="TaskBox" HorizontalAlignment="Left" Height="23" Margin="91,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding taskName}" FontSize="12" IsReadOnly="True" TextChanged="TaskBox_TextChanged" TabIndex="0"/>
+        <TextBox x:Name="LogBox" HorizontalAlignment="Left" Height="23" Margin="91,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Text="{Binding hoursLogged}" TabIndex="1" />
+        <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Height="23" Margin="89,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" TabIndex="2" />
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="36,201,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click" TabIndex="3" />
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="168,201,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click" TabIndex="4" />
     </Grid>
 </Window>
