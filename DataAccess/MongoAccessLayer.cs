@@ -18,7 +18,7 @@ namespace DataAccess
 
         public MongoAccessLayer(string database)
         {
-            _connectionString = Credentials.mongoDBConnectionString;
+            _connectionString = DBCredentials.mongoDBConnectionString;
             _client = new MongoClient(_connectionString);
             _database = _client.GetDatabase(database);
         }

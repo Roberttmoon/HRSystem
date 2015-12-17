@@ -8,13 +8,13 @@
         Title="Task Report" Height="300" Width="319.905">
     <Grid>
         <Label x:Name="TaskNameLabel" Content="Task Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TaskName" HorizontalAlignment="Left" Height="23" Margin="85,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+        <TextBox x:Name="TaskName" HorizontalAlignment="Left" Height="23" Margin="85,13,0,0" TextWrapping="Wrap" Text="{Binding taskName}" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="TaskIDLabel" Content="Task ID:" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.563,1.843"/>
-        <TextBox x:Name="TaskID" HorizontalAlignment="Left" Height="23" Margin="85,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+        <TextBox x:Name="TaskID" HorizontalAlignment="Left" Height="23" Margin="85,44,0,0" TextWrapping="Wrap" Text="{Binding ID}" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="ProjectIDLabel" Content="Project ID:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.563,1.843"/>
-        <TextBox x:Name="TaskID_Copy" HorizontalAlignment="Left" Height="23" Margin="85,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+        <TextBox x:Name="ProjectID" HorizontalAlignment="Left" Height="23" Margin="85,74,0,0" TextWrapping="Wrap" Text="{Binding ProjectID}" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="ClientIDLabel" Content="Client ID:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.563,1.843"/>
-        <TextBox x:Name="ClientID" HorizontalAlignment="Left" Height="23" Margin="85,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="199"/>
+        <TextBox x:Name="ClientID" HorizontalAlignment="Left" Height="23" Margin="85,106,0,0" TextWrapping="Wrap" Text="{Binding ClientID}" VerticalAlignment="Top" Width="199"/>
         <Label x:Name="TaskLogLabel" Content="Task Log:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.563,1.843"/>
         <ListBox x:Name="TaskLog" HorizontalAlignment="Left" Height="107" Margin="85,144,0,0" VerticalAlignment="Top" Width="199">
             <ListBox.ItemTemplate>
